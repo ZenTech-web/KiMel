@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pink:         #FF4E8C;
+  --color-pink-light:   #FF85B3;
+  --color-pink-pale:    #FFE5EF;
+  --color-yellow:       #FFD600;
+  --color-yellow-dark:  #F5B800;
+  --color-cream:        #FFF8F0;
+  --color-dark:         #2D1B4E;
+  --color-teal:         #00C8B0;
+  --color-orange:       #FF7A3C;
+
+
+  --color-cat-yellow:   #FFD600;
+  --color-cat-pink:     #FF4E8C;
+  --color-cat-teal:     #00C8B0;
+  --color-cat-orange:   #FF7A3C;
+  --color-cat-purple:   #A855F7;
+  --color-cat-blue:     #3B82F6;
+  --color-cat-rose:     #EC4899;
+  --color-cat-green:    #10B981;
+
+--font-fredoka:  'Fredoka One', cursive;
+  --font-nunito:   'Nunito', sans-serif;
+
+  --animate-float: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+.bgAcai {
+   background: radial-gradient(ellipse at top, #FFD6E7 0%, #FFF0F8 50%, #FFF8E8 100%);
+}
