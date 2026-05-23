@@ -25,6 +25,7 @@
   --font-nunito:   'Nunito', sans-serif;
 
   --animate-float: float 3s ease-in-out infinite;
+  --background-image-gradient-header: linear-gradient(to right, #e05319, #ff7e47);
 }
 
 @keyframes float {
