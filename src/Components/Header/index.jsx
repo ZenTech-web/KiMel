@@ -5,7 +5,7 @@ import { BsCart3 } from "react-icons/bs"
 const Header = () => {
     return (
        <header className="w-full bg-gradient-header">
-        <section className="max-w-[1024px] flex py-4 px-5 justify-between">
+        <section className="max-w-[1024px] flex py-4 px-5 justify-between mx-auto">
 
         <div className="flex gap-2.5">
             <Link to="/">
