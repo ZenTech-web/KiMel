@@ -18,6 +18,7 @@ const Snack = () => {
       <section className="max-w-5xl mx-auto py-5 px-5 grid grid-cols-2 gap-4 justify-items-center">
         <Card
         fix="#FFB500"
+        boderColor="#FFB500"
         fixImg="#FFF8F0"
         img={<span className="text-4xl mx-auto my-3 block text-center">🍟</span>}
         product="Batatinhas"
@@ -25,6 +26,7 @@ const Snack = () => {
         />
         <Card
         fix="#FF4E8C"
+        boderColor=""
         fixImg="#FFE5EF"
         img={<span className="text-4xl mx-auto my-3 block text-center">🍓</span>}
         product="Salada de Frutas"
@@ -32,6 +34,7 @@ const Snack = () => {
         />
         <Card
         fix="#00C8B0"
+        boderColor=""
         fixImg="#E0FAF7"
         img={<span className="text-4xl mx-auto my-3 block text-center">🍦</span>}
         product="Sorvetes"
@@ -39,6 +42,7 @@ const Snack = () => {
         />
         <Card
         fix="#FF7A3C"
+        boderColor=""
         fixImg="#FFE8DC"
         img={<span className="text-4xl mx-auto my-3 block text-center">🍔</span>}
         product="Hambúrguer"
@@ -46,6 +50,7 @@ const Snack = () => {
         />
         <Card
         fix="#A855F7"
+        boderColor=""
         fixImg="#F3E8FF"
         img={<span className="text-4xl mx-auto my-3 block text-center">🫔</span>}
         product="Cuscuz Recheado"
@@ -53,6 +58,7 @@ const Snack = () => {
         />
         <Card
         fix="#3B82F6"
+        boderColor=""
         fixImg="#EFF6FF"
         img={<span className="text-4xl mx-auto my-3 block text-center">🫓</span>}
         product="Tapioca"
@@ -60,6 +66,7 @@ const Snack = () => {
         />
         <Card
         fix="#EC4899"
+        boderColor=""
         fixImg="#FDF2F8"
         img={<span className="text-4xl mx-auto my-3 block text-center">🍭</span>}
         product="Sobremesa"
@@ -67,6 +74,7 @@ const Snack = () => {
         />
         <Card
         fix="#10B981"
+        boderColor=""
         fixImg="#ECFDF5"
         img={<span className="text-4xl mx-auto my-3 block text-center">🥤</span>}
         product="Bebidas"

@@ -1,6 +1,6 @@
 const Card = ({fix, img, product, type, fixImg}) => {
     return (
-     <section className="w-full h-45 bg-white rounded-3xl overflow-hidden ">
+     <section style={{'--c': fix}} className="w-full h-45 bg-white rounded-3xl overflow-hidden transition-all duration-300 hover:ring-2 hover:ring-(--c) hover:shadow-lg cursor-pointer">
         <div className="h-1.5 rounded-t-3xl" style={{background: fix}}>
 
         </div>
