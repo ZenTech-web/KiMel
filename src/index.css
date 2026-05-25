@@ -21,11 +21,14 @@
   --color-cat-rose:     #EC4899;
   --color-cat-green:    #10B981;
 
---font-fredoka:  'Fredoka One', cursive;
+  --font-fredoka:  'Fredoka One', cursive;
   --font-nunito:   'Nunito', sans-serif;
 
   --animate-float: float 3s ease-in-out infinite;
+
   --background-image-gradient-header: linear-gradient(to right, #e05319, #ff7e47);
+  
+  --background-image-gradient-banner: linear-gradient(to right, #ff7e47, #e05319);
 }
 
 @keyframes float {
