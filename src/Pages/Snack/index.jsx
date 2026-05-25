@@ -1,12 +1,16 @@
+import { useState } from "react"
 import Card from "../../Components/Card"
 import Footer from "../../Components/Footer"
 import Header from "../../Components/Header"
 import { Link } from "react-router-dom"
 
 const Snack = () => {
+    const [cartOpen, setCartOpen] = useState(false)
+    const [cartItems] = useState([])
+
     return (
       <>
-      <Header/>
+      <Header onCartClick={() => setCartOpen(true)} cartCount={cartItems.length} />
 
       <main className="bg-cream pb-12">
 
@@ -89,14 +93,41 @@ const Snack = () => {
             <li><Link to="/" className="flex flex-col items-center gap-0.5 cursor-pointer"><span className="text-xl">🏠</span>início</Link></li>
             <li><Link to="/Snack" className="flex flex-col items-center gap-0.5 cursor-pointer"><span className="text-xl">🍽️</span>Cardápio</Link></li>
             <li><Link to="/Acaí" className="flex flex-col items-center gap-0.5 cursor-pointer"><span className="text-xl">🫐</span>montar</Link></li>
-            <li className="flex flex-col items-center gap-0.5 cursor-pointer"><span className="text-xl">🛒</span>carrinho</li>
+            <li onClick={() => setCartOpen(true)} className="flex flex-col items-center gap-0.5 cursor-pointer"><span className="text-xl">🛒</span>carrinho</li>
           </ul>
         </menu>
       </section>
 
+      {cartOpen && (
+        <div className="fixed inset-0 z-20 flex justify-end">
+          <div onClick={() => setCartOpen(false)} className="absolute inset-0 bg-black/40" />
+          <div className="relative bg-white w-4/5 max-w-sm h-full p-5 overflow-y-auto flex flex-col">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-lg font-black font-nunito">Carrinho 🛒</h2>
+              <button onClick={() => setCartOpen(false)} className="text-xl font-bold text-gray-400 cursor-pointer">✕</button>
+            </div>
+            {cartItems.length === 0 ? (
+              <div className="flex flex-col items-center py-10 gap-2 text-gray-400 flex-1 justify-center">
+                <span className="text-5xl">🛒</span>
+                <p className="text-sm">Seu carrinho está vazio</p>
+              </div>
+            ) : (
+              <ul className="flex flex-col gap-3">
+                {cartItems.map((item, i) => (
+                  <li key={i} className="flex justify-between items-center border-b pb-2">
+                    <span>{item.name}</span>
+                    <span className="font-bold">{item.price}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+      )}
+
       </main>
       <Footer/>
-      </>
+</>
     )
 }
 

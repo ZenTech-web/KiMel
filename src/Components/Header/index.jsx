@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { TbChefHatFilled } from "react-icons/tb"
 import { BsCart3 } from "react-icons/bs"
 
-const Header = () => {
+const Header = ({ onCartClick, cartCount = 0 }) => {
     return (
        <header className="w-full bg-gradient-header">
         <section className="max-w-[1024px] flex py-4 px-5 justify-between mx-auto">
@@ -19,10 +19,10 @@ const Header = () => {
             </div>
         </div>
 
-        <div className="relative w-9 h-9 bg-[#ffffff33] rounded-lg flex justify-center items-center">
+        <div onClick={onCartClick} className="relative w-9 h-9 bg-[#ffffff33] rounded-lg flex justify-center items-center cursor-pointer">
             <BsCart3 className="text-white text-[18px]" />
             <span className="absolute -top-2 -right-2 bg-[#FFD600] text-dark text-[10px] font-bold w-5 h-5 rounded-full flex justify-center items-center">
-                0
+                {cartCount}
             </span>
         </div>
 
