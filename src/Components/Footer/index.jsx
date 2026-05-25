@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-      <footer className="bg-gradient-banner py-2.5">
+      <footer className="bg-gradient-banner py-2.5 mb-14">
         <h3 className="text-white text-center font-nunito">Ki <span className="text-yellow-dark">Mel</span></h3>
         <ul className="text-center text-white text-[11px]">
           <li>(81) 99609-9373</li>
