@@ -2,11 +2,23 @@ import { useState } from "react"
 import Card from "../../Components/Card"
 import Footer from "../../Components/Footer"
 import Header from "../../Components/Header"
-import { Link } from "react-router-dom"
+import BottomNav from "../../Components/BottomNav"
+import ProductCard from "../../Components/ProductCard"
+import Data from "../../Data/Data"
+
+const categories = Data[0].containerCategory
+const products = Data[1].products
 
 const Snack = () => {
     const [cartOpen, setCartOpen] = useState(false)
-    const [cartItems] = useState([])
+    const [cartItems, setCartItems] = useState([])
+    const [selectedCategory, setSelectedCategory] = useState(null)
+
+    const handleAddToCart = (item) => {
+        setCartItems(prev => [...prev, item])
+    }
+
+    const selectedProducts = selectedCategory ? products[selectedCategory] : []
 
     return (
       <>
@@ -15,88 +27,51 @@ const Snack = () => {
       <main className="bg-cream pb-12">
 
       <section className="max-w-[1024px] mx-auto py-5 bg-gradient-banner">
-
-         <h1 className="text-center text-white text-2xl font-black">Ki <span className="text-yellow-dark">Mel</span> Sorveteria</h1>
-         <p className="text-center text-white text-[12px]">Escolha sua categoria favorita &#x1F924;</p> 
+        <h1 className="text-center text-white text-2xl font-black">Ki <span className="text-yellow-dark">Mel</span> Sorveteria</h1>
+        <p className="text-center text-white text-[12px]">Escolha sua categoria favorita &#x1F924;</p>
       </section>
 
       <section className="max-w-5xl mx-auto py-5 px-5 grid grid-cols-2 gap-4 justify-items-center">
-        <Card
-        fix="#FFB500"
-        boderColor="#FFB500"
-        fixImg="#FFF8F0"
-        img={<span className="text-4xl mx-auto my-3 block text-center">🍟</span>}
-        product="Batatinhas"
-        type="Crocantes e deliciosas"
-        />
-        <Card
-        fix="#FF4E8C"
-        boderColor=""
-        fixImg="#FFE5EF"
-        img={<span className="text-4xl mx-auto my-3 block text-center">🍓</span>}
-        product="Salada de Frutas"
-        type="Frescas todo dia"
-        />
-        <Card
-        fix="#00C8B0"
-        boderColor=""
-        fixImg="#E0FAF7"
-        img={<span className="text-4xl mx-auto my-3 block text-center">🍦</span>}
-        product="Sorvetes"
-        type="Vários sabores"
-        />
-        <Card
-        fix="#FF7A3C"
-        boderColor=""
-        fixImg="#FFE8DC"
-        img={<span className="text-4xl mx-auto my-3 block text-center">🍔</span>}
-        product="Hambúrguer"
-        type="Artesanais"
-        />
-        <Card
-        fix="#A855F7"
-        boderColor=""
-        fixImg="#F3E8FF"
-        img={<span className="text-4xl mx-auto my-3 block text-center">🫔</span>}
-        product="Cuscuz Recheado"
-        type="Feito na hora"
-        />
-        <Card
-        fix="#3B82F6"
-        boderColor=""
-        fixImg="#EFF6FF"
-        img={<span className="text-4xl mx-auto my-3 block text-center">🫓</span>}
-        product="Tapioca"
-        type="Doce ou salgada"
-        />
-        <Card
-        fix="#EC4899"
-        boderColor=""
-        fixImg="#FDF2F8"
-        img={<span className="text-4xl mx-auto my-3 block text-center">🍭</span>}
-        product="Sobremesa"
-        type="Para adoçar o dia"
-        />
-        <Card
-        fix="#10B981"
-        boderColor=""
-        fixImg="#ECFDF5"
-        img={<span className="text-4xl mx-auto my-3 block text-center">🥤</span>}
-        product="Bebidas"
-        type="Geladas e saborosas"
-        />
+        {categories.map(cat => (
+          <div key={cat.id} onClick={() => setSelectedCategory(cat.key)} className="w-full">
+            <Card
+              fix={cat.fix}
+              fixImg={cat.fixImg}
+              img={<span className="text-4xl mx-auto my-3 block text-center">{cat.icon}</span>}
+              product={cat.name}
+              type={cat.type}
+            />
+          </div>
+        ))}
       </section>
 
-      <section className="w-full fixed bottom-0 left-0 z-10 bg-white py-2.5 px-2.5 shadow-[0_-4px_10px_rgba(0,0,0,0.07)]">
-        <menu>
-          <ul className="flex text-[8px] font-extralight justify-between uppercase max-w-[1024px] mx-auto">
-            <li><Link to="/" className="flex flex-col items-center gap-0.5 cursor-pointer"><span className="text-xl">🏠</span>início</Link></li>
-            <li><Link to="/Snack" className="flex flex-col items-center gap-0.5 cursor-pointer"><span className="text-xl">🍽️</span>Cardápio</Link></li>
-            <li><Link to="/Acaí" className="flex flex-col items-center gap-0.5 cursor-pointer"><span className="text-xl">🫐</span>montar</Link></li>
-            <li onClick={() => setCartOpen(true)} className="flex flex-col items-center gap-0.5 cursor-pointer"><span className="text-xl">🛒</span>carrinho</li>
-          </ul>
-        </menu>
-      </section>
+      {selectedCategory && (
+        <section className="max-w-5xl mx-auto px-5 pb-5">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-black font-nunito">
+              {categories.find(c => c.key === selectedCategory)?.name}
+            </h2>
+            <button onClick={() => setSelectedCategory(null)} className="text-sm text-gray-400 cursor-pointer">
+              Fechar ✕
+            </button>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {selectedProducts.map(product => (
+              <ProductCard
+                key={product.id}
+                icon={product.icon}
+                img={product.img}
+                name={product.name}
+                obs={product.obs}
+                price={product.price}
+                onAdd={handleAddToCart}
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
+      <BottomNav onCartClick={() => setCartOpen(true)} />
 
       {cartOpen && (
         <div className="fixed inset-0 z-20 flex justify-end">
@@ -115,8 +90,8 @@ const Snack = () => {
               <ul className="flex flex-col gap-3">
                 {cartItems.map((item, i) => (
                   <li key={i} className="flex justify-between items-center border-b pb-2">
-                    <span>{item.name}</span>
-                    <span className="font-bold">{item.price}</span>
+                    <span className="text-sm">{item.icon} {item.name}{item.obs ? ` - ${item.obs}` : ""}</span>
+                    <span className="font-bold text-orange text-sm">R$ {item.price.toFixed(2).replace(".", ",")}</span>
                   </li>
                 ))}
               </ul>
@@ -127,7 +102,7 @@ const Snack = () => {
 
       </main>
       <Footer/>
-</>
+      </>
     )
 }
 
