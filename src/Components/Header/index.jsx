@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom"
-import { TbChefHatFilled } from "react-icons/tb"
 import { BsCart3 } from "react-icons/bs"
 
-const Header = ({ onCartClick, cartCount = 0 }) => {
+const Header = ({ title, bg, icon, onCartClick, cartCount = 0 }) => {
     return (
-       <header className="w-full bg-gradient-header">
+       <header style={{background: bg}} className="w-full ">
         <section className="max-w-[1024px] flex py-4 px-5 justify-between mx-auto">
 
         <div className="flex gap-2.5">
@@ -14,8 +13,8 @@ const Header = ({ onCartClick, cartCount = 0 }) => {
             </div>
             </Link>
             <div className="flex items-center">
-                <TbChefHatFilled className="text-4xl" style={{ color: '#FFD600' }} />
-                <p className="text-2xl text-white font-black font-nunito">Cardápio</p>
+                {icon}
+                <p className="text-2xl text-white font-black font-nunito">{title}</p>
             </div>
         </div>
 
