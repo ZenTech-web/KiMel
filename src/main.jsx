@@ -7,6 +7,7 @@ import Main from './Pages/Main/index.jsx'
 import NotFound from './Pages/NotFound/index.jsx'
 import Acaí from './Pages/Acaí/index.jsx'
 import Snack from './Pages/Snack/index.jsx'
+import Pedido from './Pages/Pedido/index.jsx'
 import { CartProvider } from './Context/CartContext.jsx'
 
 const router = createBrowserRouter([
@@ -18,6 +19,9 @@ const router = createBrowserRouter([
       {path:"/Acaí", element:<Acaí/>},
       {path:"/Snack", element:<Snack/>}
     ]
+  },
+  {
+    path: "/pedido", element: <Pedido/>
   },
   {
     path: "*", element: <NotFound/>

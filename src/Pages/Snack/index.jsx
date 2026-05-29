@@ -7,14 +7,18 @@ import BottomNav from "../../Components/BottomNav"
 import ProductCard from "../../Components/ProductCard"
 import ProductModal from "../../Components/ProductModal"
 import CartModal from "../../Components/CartModal"
+import CheckoutModal from "../../Components/CheckoutModal"
 import Data from "../../Data/Data"
 import { useCart } from "../../Context/CartContext"
+import StoreBanner from "../../Components/StoreBanner"
+import { useStoreStatus } from "../../hooks/useStoreStatus"
 
 const categories = Data[0].containerCategory
 const products = Data[1].products
 
 const Snack = () => {
-    const { cartOpen, setCartOpen, cartItems, cartTotal, addItem, updateQty, removeItem } = useCart()
+    const { cartOpen, setCartOpen, checkoutOpen, setCheckoutOpen, cartItems, cartTotal, addItem, updateQty, removeItem } = useCart()
+    const { isOpen, message, type } = useStoreStatus()
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [selectedProduct, setSelectedProduct] = useState(null)
     const productsRef = useRef(null)
@@ -31,9 +35,10 @@ const Snack = () => {
 
     return (
       <>
-      <Header bg="var(--background-image-gradient-header)" onCartClick={() => setCartOpen(true)} cartCount={cartItems.length} title="Cardápio" icon={<TbChefHatFilled className="text-4xl" style={{ color: '#FFD600' }} />}/>
+      <Header bg="var(--background-image-gradient-header)" onCartClick={() => setCartOpen(true)} cartCount={cartItems.length} title="Cardápio" icon={<TbChefHatFilled className="text-4xl text-yellow" />}/>
 
       <main className="bg-cream pb-12">
+      {!isOpen && <StoreBanner message={message} type={type} />}
 
       <section className="max-w-5xl mx-auto py-5 bg-gradient-banner">
         <h1 className="text-center text-white text-2xl font-black">Ki <span className="text-yellow-dark">Mel</span> Sorveteria</h1>
@@ -54,6 +59,17 @@ const Snack = () => {
         ))}
       </section>
 
+      {cartItems.length > 0 && (
+        <div className="flex justify-center px-5 mb-5 max-w-5xl mx-auto">
+          <button
+            onClick={() => setCheckoutOpen(true)}
+            className="w-full bg-green-500 hover:bg-green-600 active:scale-95 text-white font-nunito font-black text-[17px] py-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer shadow-md"
+          >
+            ✅ Finalizar Compra — R$ {cartTotal.toFixed(2).replace(".", ",")}
+          </button>
+        </div>
+      )}
+
       {selectedCategory && (
         <section ref={productsRef} className="max-w-5xl mx-auto px-5 pb-5">
           <div className="flex justify-between items-center mb-4">
@@ -71,6 +87,7 @@ const Snack = () => {
                 name={product.name}
                 obs={product.obs}
                 price={product.price}
+                zapFlavor={product.zapFlavor}
                 onAdd={() => setSelectedProduct(product)}
               />
             ))}
@@ -87,6 +104,7 @@ const Snack = () => {
           onClose={() => setCartOpen(false)}
           onUpdateQty={updateQty}
           onRemove={removeItem}
+          onCheckout={() => { setCartOpen(false); setCheckoutOpen(true) }}
         />
       )}
 
@@ -100,6 +118,13 @@ const Snack = () => {
 
       </main>
       <Footer bg="var(--background-image-gradient-header)"/>
+
+      {checkoutOpen && (
+        <CheckoutModal
+          onClose={() => setCheckoutOpen(false)}
+          onConfirm={() => setCheckoutOpen(false)}
+        />
+      )}
       </>
     )
 }

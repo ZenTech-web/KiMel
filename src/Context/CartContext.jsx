@@ -1,15 +1,29 @@
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useState, useEffect } from "react"
 
 const CartContext = createContext(null)
 
+const STORAGE_KEY = "kimel_cart"
+
 export const CartProvider = ({ children }) => {
   const [cartOpen, setCartOpen] = useState(false)
-  const [cartItems, setCartItems] = useState([])
+  const [checkoutOpen, setCheckoutOpen] = useState(false)
+  const [cartItems, setCartItems] = useState(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY)
+      return saved ? JSON.parse(saved) : []
+    } catch {
+      return []
+    }
+  })
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(cartItems))
+  }, [cartItems])
 
   const cartTotal = cartItems.reduce((sum, item) => sum + item.price * (item.quantity || 1), 0)
 
   const addItem = (item) => {
-    setCartItems(prev => [...prev, { ...item, quantity: 1 }])
+    setCartItems(prev => [...prev, { quantity: 1, ...item }])
   }
 
   const updateQty = (index, delta) => {
@@ -26,8 +40,10 @@ export const CartProvider = ({ children }) => {
     setCartItems(prev => prev.filter((_, i) => i !== index))
   }
 
+  const clearCart = () => setCartItems([])
+
   return (
-    <CartContext.Provider value={{ cartOpen, setCartOpen, cartItems, cartTotal, addItem, updateQty, removeItem }}>
+    <CartContext.Provider value={{ cartOpen, setCartOpen, checkoutOpen, setCheckoutOpen, cartItems, cartTotal, addItem, updateQty, removeItem, clearCart }}>
       {children}
     </CartContext.Provider>
   )

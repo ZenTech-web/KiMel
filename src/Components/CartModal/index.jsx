@@ -1,6 +1,6 @@
 import { FiTrash2 } from "react-icons/fi"
 
-const CartModal = ({ cartItems, cartTotal, onClose, onUpdateQty, onRemove }) => {
+const CartModal = ({ cartItems, cartTotal, onClose, onUpdateQty, onRemove, onCheckout }) => {
   return (
     <div className="fixed inset-0 z-20 flex justify-end">
       <div onClick={onClose} className="absolute inset-0 bg-black/40" />
@@ -27,7 +27,7 @@ const CartModal = ({ cartItems, cartTotal, onClose, onUpdateQty, onRemove }) => 
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-[13px] font-bold text-dark leading-tight truncate">
-                      {item.name}{item.obs ? ` - ${item.obs}` : ""}
+                      {item.name}{[item.obs, item.notes].filter(Boolean).join(" · ") ? ` - ${[item.obs, item.notes].filter(Boolean).join(" · ")}` : ""}
                     </p>
                     <p className="font-bold text-orange text-[13px] mt-0.5">
                       R$ {(item.price * (item.quantity || 1)).toFixed(2).replace(".", ",")}
@@ -48,6 +48,12 @@ const CartModal = ({ cartItems, cartTotal, onClose, onUpdateQty, onRemove }) => 
               <span className="font-black font-nunito text-dark">Total</span>
               <span className="font-black text-orange">R$ {cartTotal.toFixed(2).replace(".", ",")}</span>
             </div>
+            <button
+              onClick={onCheckout}
+              className="w-full mt-4 bg-green-500 hover:bg-green-600 active:scale-95 text-white font-nunito font-black text-[16px] py-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer"
+            >
+              ✅ Finalizar Compra
+            </button>
           </>
         )}
       </div>

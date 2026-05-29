@@ -8,7 +8,7 @@ const Header = ({ title, bg, icon, onCartClick, cartCount = 0 }) => {
 
         <div className="flex gap-2.5">
             <Link to="/">
-            <div className="text-white text-[16px] font-bold w-9 h-9 bg-[#ffffff33] rounded-[8px] flex justify-center items-center">
+            <div className="text-white text-[16px] font-bold w-9 h-9 bg-white/20 rounded-[8px] flex justify-center items-center">
                 &lt;
             </div>
             </Link>
@@ -18,11 +18,13 @@ const Header = ({ title, bg, icon, onCartClick, cartCount = 0 }) => {
             </div>
         </div>
 
-        <div onClick={onCartClick} className="relative w-9 h-9 bg-[#ffffff33] rounded-lg flex justify-center items-center cursor-pointer">
+        <div onClick={onCartClick} className="relative w-9 h-9 bg-white/20 rounded-lg flex justify-center items-center cursor-pointer">
             <BsCart3 className="text-white text-[18px]" />
-            <span className="absolute -top-2 -right-2 bg-[#FFD600] text-dark text-[10px] font-bold w-5 h-5 rounded-full flex justify-center items-center">
+            {cartCount > 0 && (
+              <span className="absolute -top-2 -right-2 bg-yellow text-dark text-[10px] font-bold w-5 h-5 rounded-full flex justify-center items-center">
                 {cartCount}
-            </span>
+              </span>
+            )}
         </div>
 
         </section>

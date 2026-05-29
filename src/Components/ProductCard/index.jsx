@@ -1,4 +1,6 @@
-const ProductCard = ({ icon, img, name, obs, price, onAdd }) => {
+import { FaWhatsapp } from "react-icons/fa"
+
+const ProductCard = ({ icon, img, name, obs, price, zapFlavor, onAdd }) => {
     return (
       <div className="bg-white rounded-2xl overflow-hidden shadow-sm flex flex-col">
         <div className="w-full h-36 flex items-center justify-center p-3 bg-gray-100">
@@ -15,6 +17,12 @@ const ProductCard = ({ icon, img, name, obs, price, onAdd }) => {
             <p className="text-orange font-bold text-[13px] mt-0.5">
               R$ {price.toFixed(2).replace(".", ",")}
             </p>
+            {zapFlavor && (
+              <p className="flex items-center gap-1 text-[11px] text-green-600 font-medium mt-1">
+                <FaWhatsapp className="text-[13px]" />
+                Sabor escolhido no WhatsApp
+              </p>
+            )}
           </div>
           <button
             onClick={() => onAdd({ name, obs, price, icon, img })}

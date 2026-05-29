@@ -1,41 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  --color-pink:         #FF4E8C;
-  --color-pink-light:   #FF85B3;
-  --color-pink-pale:    #FFE5EF;
-  --color-yellow:       #FFD600;
-  --color-yellow-dark:  #F5B800;
-  --color-cream:        #FFF8F0;
-  --color-dark:         #2D1B4E;
-  --color-teal:         #00C8B0;
-  --color-orange:       #FF7A3C;
+  /* Cores base */
+  --color-pink:        #FF4E8C;
+  --color-pink-light:  #FF85B3;
+  --color-yellow:      #FFD600;
+  --color-yellow-dark: #F5B800;
+  --color-cream:       #FFF8F0;
+  --color-dark:        #2D1B4E;
+  --color-teal:        #00C8B0;
+  --color-orange:      #FF7A3C;
 
+  /* Cores do Açaí */
+  --color-acai:        #652CC1;
+  --color-acai-light:  #9B5EF5;
+  --color-acai-pale:   #F5F3FF;
 
-  --color-cat-yellow:   #FFD600;
-  --color-cat-pink:     #FF4E8C;
-  --color-cat-teal:     #00C8B0;
-  --color-cat-orange:   #FF7A3C;
-  --color-cat-purple:   #A855F7;
-  --color-cat-blue:     #3B82F6;
-  --color-cat-rose:     #EC4899;
-  --color-cat-green:    #10B981;
+  /* Fontes */
+  --font-fredoka: 'Fredoka One', cursive;
+  --font-nunito:  'Nunito', sans-serif;
 
-  --font-fredoka:  'Fredoka One', cursive;
-  --font-nunito:   'Nunito', sans-serif;
-
+  /* Animações */
   --animate-float: float 3s ease-in-out infinite;
-  
-  --background-image-gradient-banner: linear-gradient(to right, #ff7e47, #e05319);
-  
-  --background-image-gradient-banner-acair: linear-gradient(135deg, #7C3AED, #4C1D95);
-  
-  --background-image-gradient-section-line: linear-gradient(90deg, #C4B5FD, transparent);
-}
 
-:root {
-  --background-image-gradient-header: linear-gradient(to right, #e05319, #ff7e47);
+  /* Gradientes */
+  --background-image-gradient-banner:       linear-gradient(to right, #ff7e47, #e05319);
+  --background-image-gradient-header:       linear-gradient(to right, #e05319, #ff7e47);
+  --background-image-gradient-banner-acair: linear-gradient(135deg, #7C3AED, #4C1D95);
   --background-image-gradient-header-acair: linear-gradient(to right, #4C1D95, #7C3AED);
+  --background-image-gradient-section-line: linear-gradient(90deg, #C4B5FD, transparent);
+  --background-image-gradient-btn-acai:     linear-gradient(135deg, #FF4E8C 0%, #C23277 100%);
+  --background-image-gradient-btn-snack:    linear-gradient(135deg, #FF7A3C 0%, #C94500 100%);
+  --background-image-gradient-divider:      linear-gradient(90deg, #FF4E8C, #FFD600);
+  --background-image-gradient-main:         radial-gradient(ellipse at top, #FFD6E7 0%, #FFF0F8 50%, #FFF8E8 100%);
 }
 
 @keyframes float {
@@ -44,5 +41,5 @@
 }
 
 .bgAcai {
-   background: radial-gradient(ellipse at top, #FFD6E7 0%, #FFF0F8 50%, #FFF8E8 100%);
+  background: var(--background-image-gradient-main);
 }

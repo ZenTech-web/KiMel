@@ -35,12 +35,12 @@ const Data = [
       { id: 2, icon: "🍓", name: "Salada de Frutas", type: "Frescas todo dia",       fix: "#FF4E8C", fixImg: "#FFE5EF", key: "saladaFrutas" },
       { id: 3, icon: "🍦", name: "Sorvete e Milk Shake", type: "Gelados e cremosos",   fix: "#00C8B0", fixImg: "#E0FAF7", key: "sorvetes" },
       { id: 4, icon: "🍔", name: "Hambúrguer & Dog",  type: "Artesanais e Cachorro Quente", fix: "#FF7A3C", fixImg: "#FFE8DC", key: "hamburgueres" },
-      { id: 5, icon: "🫔", name: "Cuscuz Recheado",  type: "Feito na hora",          fix: "#A855F7", fixImg: "#F3E8FF", key: "cuscuz" },
+      { id: 5, icon: "🌽", name: "Cuscuz Recheado",  type: "Feito na hora",          fix: "#A855F7", fixImg: "#F3E8FF", key: "cuscuz" },
       { id: 6, icon: "🫓", name: "Tapioca",          type: "Doce ou salgada",        fix: "#3B82F6", fixImg: "#EFF6FF", key: "tapioca" },
       { id: 7, icon: "🍭", name: "Sobremesa",        type: "Para adoçar o dia",      fix: "#EC4899", fixImg: "#FDF2F8", key: "sobremesas" },
       { id: 8, icon: "🥤", name: "Bebidas",          type: "Geladas e saborosas",    fix: "#10B981", fixImg: "#ECFDF5", key: "bebidas" },
       { id: 9,  icon: "🥪", name: "Misto e Coxinha",  type: "Quentes e saborosos",    fix: "#F59E0B", fixImg: "#FEF3C7", key: "mistos" },
-      { id: 10, icon: "🫐", name: "Potes de Açaí",    type: "Cremoso e gelado",        fix: "#7C3AED", fixImg: "#EDE9FE", key: "potes" },
+      { id: 10, icon: "🫕", name: "Potes e Combos",    type: "Cremoso e gelado",        fix: "#7C3AED", fixImg: "#EDE9FE", key: "potes" },
     ]
   },
   {
@@ -117,7 +117,22 @@ const Data = [
         { id: 41, name: "Coca-Cola Zero",      obs: "1 Litro", price: 10.00, img: null, icon: "🥤" },
         { id: 42, name: "Guaraná",             obs: "1 Litro", price: 8.00,  img: null, icon: "🥤" },
       ],
-      potes: [],
+      potes: [
+        { id: 60, name: "Pote de Açaí",    obs: "1 litro",   price: 17.00, img: null, icon: "🫐", descricao: "Pote de açaí cremoso de 1 litro. Acompanha granola, leite condensado e leite em pó." },
+        { id: 61, name: "Pote de Sorvete", obs: "2 litros",   price: 32.00, img: null, icon: "🍨", descricao: "Pote de sorvete cremoso de 2 litros." },
+        { id: 62, name: "Combo",           obs: "2 Mini Hambúrguer + 1 Del Valle", price: 20.00, img: null, icon: "🍔", descricao: "2 Mini Hambúrgueres artesanais + 1 Del Valle gelado." },
+        { id: 63, name: "Combo",           obs: "Serve 2 pessoas", price: 30.00, img: null, icon: "🍔", descricao: "Combo de hambúrgueres para 2 pessoas." },
+        { id: 64, name: "Combo",           obs: "Serve 3 pessoas", price: 45.00, img: null, icon: "🍔", descricao: "Combo de hambúrgueres para 3 pessoas." },
+      ],
+      sorvetes: [
+        { id: 65, name: "Copinho",    obs: "2 bolas",  price: 6.00,  img: null, icon: "🍦", zapFlavor: true },
+        { id: 66, name: "Casquinha",  obs: "2 bolas",  price: 7.00,  img: null, icon: "🍦", zapFlavor: true },
+        { id: 67, name: "Sestinha",   obs: "2 bolas",  price: 8.00,  img: null, icon: "🍦", zapFlavor: true },
+        { id: 68, name: "Milk Shake", obs: "300ml",    price: 10.00, img: null, icon: "🥤", zapFlavor: true },
+        { id: 69, name: "Milk Shake", obs: "400ml",    price: 12.00, img: null, icon: "🥤", zapFlavor: true },
+        { id: 70, name: "Milk Shake", obs: "500ml",    price: 14.00, img: null, icon: "🥤", zapFlavor: true },
+        { id: 71, name: "Milk Shake", obs: "700ml",    price: 17.00, img: null, icon: "🥤", zapFlavor: true },
+      ],
       sobremesas: [
         { id: 43, name: "Sobremesa", obs: null, price: 5.00, img: pudimImg, opcoes: ["Pudim", "Musse de Limão", "Musse de Maracujá"] },
       ],
