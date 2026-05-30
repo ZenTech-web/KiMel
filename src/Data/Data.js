@@ -5,6 +5,8 @@ import acai700 from "../assets/img/acairNoCopo700.png"
 import misto from "../assets/img/Misto.png"
 import hamburger from "../assets/img/x-burgue.png"
 import hamburgerSupremo from "../assets/img/HaburqueSupremo.png"
+import xRaizImg from "../assets/img/Xraiz.png"
+import novoComboImg from "../assets/img/novoHamburquerCombo.png"
 import batata from "../assets/img/batataFlita.png"
 import coxinha from "../assets/img/coxinha.png"
 import tapiocaPlato from "../assets/img/tapiocaNoPlato.png"
@@ -27,6 +29,20 @@ import doritos from "../assets/img/doritos.png"
 import sensacao from "../assets/img/sensacao.png"
 import cuscuzImg from "../assets/img/cuscuz.png"
 import pudimImg from "../assets/img/pudim.png"
+import cachorroQuenteImg from "../assets/img/cachorro-quente.png"
+import milkShakeImg from "../assets/img/milk.png"
+import picolerImg from "../assets/img/sorvetes.png"
+import acaiComLeiteImg from "../assets/img/açaí-900ml_mockup.png"
+import trufasImg from "../assets/img/trufas.png"
+import fantaUvaImg from "../assets/img/fantaUva.png"
+import cocaZeroImg from "../assets/img/coca-cola-zero.png"
+import schweppesImg from "../assets/img/schweppes.png"
+import spriteImg from "../assets/img/sprit.png"
+import doisHambDelValleImg from "../assets/img/2haburqueEUmDEll.png"
+import comboHambImg from "../assets/img/comboHanbuque2e3.png"
+import guaranaLataImg from "../assets/img/GuaranaLata.png"
+import guarana1LImg from "../assets/img/garanar1l.png"
+import saladaFrutasImg from "../assets/img/saladaDeFlutas.png"
 
 const Data = [
   {
@@ -52,13 +68,13 @@ const Data = [
         { id: 4,  name: "Açaí", obs: "700ml", price: 18.00, img: acai700,     adicionais: ["Paçoca", "M&M", "Jujuba", "Farinha de Lactose", "Ovo de Maltine"], precoAdicional: 2.00, adicionalEspecial: { nome: "Nutella", preco: 4.00 }, frutas: ["Morango", "Banana", "Kiwi", "Maçã", "Abacaxi", "Uva"] },
       ],
       saladaFrutas: [
-        { id: 56, name: "Salada de Frutas", obs: "300ml", price: 7.00,  img: null, icon: "🍓", descricao: "Acompanha leite condensado, leite em pó ou granola.", opcoes: ["Leite Condensado e Leite em Pó", "Granola"] },
-        { id: 57, name: "Salada de Frutas", obs: "400ml", price: 9.00,  img: null, icon: "🍓", descricao: "Acompanha leite condensado, leite em pó ou granola.", opcoes: ["Leite Condensado e Leite em Pó", "Granola"] },
-        { id: 58, name: "Salada de Frutas", obs: "500ml", price: 11.00, img: null, icon: "🍓", descricao: "Acompanha leite condensado, leite em pó ou granola.", opcoes: ["Leite Condensado e Leite em Pó", "Granola"] },
+        { id: 56, name: "Salada de Frutas", obs: "300ml", price: 7.00,  img: saladaFrutasImg, descricao: "Acompanha leite condensado, leite em pó ou granola.", opcoes: ["Leite Condensado e Leite em Pó", "Granola"] },
+        { id: 57, name: "Salada de Frutas", obs: "400ml", price: 9.00,  img: saladaFrutasImg, descricao: "Acompanha leite condensado, leite em pó ou granola.", opcoes: ["Leite Condensado e Leite em Pó", "Granola"] },
+        { id: 58, name: "Salada de Frutas", obs: "500ml", price: 11.00, img: saladaFrutasImg, descricao: "Acompanha leite condensado, leite em pó ou granola.", opcoes: ["Leite Condensado e Leite em Pó", "Granola"] },
       ],
       cachorroQuente: [
-        { id: 5, name: "Cachorro Quente", obs: "G", price: 10.00, img: null, icon: "🌭", descricao: "Pão 15cm, salsicha, carne ou frango, salada, ovo de codorna, queijo ralado, cheddar, molho especial e batata palha." },
-        { id: 6, name: "Cachorro Quente", obs: "P", price: 7.00,  img: null, icon: "🌭", descricao: "Pão sedã, salsicha, carne ou frango, salada, queijo ralado, molho especial e batata palha." },
+        { id: 5, name: "Cachorro Quente", obs: "G", price: 10.00, img: cachorroQuenteImg, descricao: "Pão 15cm, salsicha, carne ou frango, salada, ovo de codorna, queijo ralado, cheddar, molho especial e batata palha." },
+        { id: 6, name: "Cachorro Quente", obs: "P", price: 7.00,  img: cachorroQuenteImg, descricao: "Pão sedã, salsicha, carne ou frango, salada, queijo ralado, molho especial e batata palha." },
       ],
       mistos: [
         { id: 7, name: "Misto Tradicional", obs: null, price: 5.00,  img: misto,      descricao: "Pão de forma, presunto e mussarela." },
@@ -67,15 +83,15 @@ const Data = [
         { id: 20, name: "Coxinha", obs: "unidade", price: 5.00,  img: coxinha },
       ],
       hamburgueres: [
-        { id: 5,  name: "Cachorro Quente", obs: "G", price: 10.00, img: null, icon: "🌭", descricao: "Pão 15cm, salsicha, carne ou frango, salada, ovo de codorna, queijo ralado, cheddar, molho especial e batata palha." },
-        { id: 6,  name: "Cachorro Quente", obs: "P", price: 7.00,  img: null, icon: "🌭", descricao: "Pão sedã, salsicha, carne ou frango, salada, queijo ralado, molho especial e batata palha." },
+        { id: 5,  name: "Cachorro Quente", obs: "G", price: 10.00, img: cachorroQuenteImg, descricao: "Pão 15cm, salsicha, carne ou frango, salada, ovo de codorna, queijo ralado, cheddar, molho especial e batata palha." },
+        { id: 6,  name: "Cachorro Quente", obs: "P", price: 7.00,  img: cachorroQuenteImg, descricao: "Pão sedã, salsicha, carne ou frango, salada, queijo ralado, molho especial e batata palha." },
         { id: 10, name: "Mini Hambúrguer", obs: null, price: 10.00, img: hamburger,       descricao: "Mini pão, carne artesanal, presunto, mussarela, molho especial e molho barbecue." },
         { id: 11, name: "Tradicional",     obs: null, price: 11.00, img: hamburger,       descricao: "Pão bola, carne tradicional, presunto, mussarela, alface, tomate, molho especial e molho barbecue." },
         { id: 12, name: "Burguer",         obs: null, price: 13.00, img: hamburger,       descricao: "Pão bola, carne artesanal, presunto, mussarela, alface, tomate, molho especial e molho barbecue." },
         { id: 13, name: "Big",             obs: null, price: 16.00, img: hamburger,       descricao: "Pão bola, 2 carnes artesanais, presunto, mussarela, alface, tomate, molho especial e molho barbecue." },
         { id: 14, name: "X-Calabresa",     obs: null, price: 16.00, img: hamburger,       descricao: "Pão bola, carne artesanal, presunto, mussarela, calabresa, alface, tomate, molho especial e molho barbecue." },
         { id: 15, name: "X-Bacon", obs: null, price: 17.00, img: hamburger,       descricao: "Pão bola, carne artesanal, presunto, mussarela, bacon, alface, tomate, molho especial e molho barbecue." },
-        { id: 16, name: "X-Raiz", obs: null, price: 19.00, img: hamburger,       descricao: "Pão gergelim, carne artesanal, presunto, mussarela, calabresa, salsicha, ovo, alface, tomate, cheddar, molho especial e molho barbecue." },
+        { id: 16, name: "X-Raiz", obs: null, price: 19.00, img: xRaizImg,       descricao: "Pão gergelim, carne artesanal, presunto, mussarela, calabresa, salsicha, ovo, alface, tomate, cheddar, molho especial e molho barbecue." },
         { id: 17, name: "Supremo", obs: null, price: 27.00, img: hamburgerSupremo, descricao: "Pão gergelim, 2 carnes artesanais, presunto, mussarela, calabresa, salsicha, frango desfiado, ovo, alface, tomate, cheddar, molho especial e molho barbecue." },
       ],
       batata: [
@@ -106,32 +122,33 @@ const Data = [
         { id: 30, name: "Fanta Pequena",       obs: null,      price: 3.00,  img: fantaPequena },
         { id: 31, name: "Coca-Cola Lata",      obs: "350ml",   price: 5.00,  img: cocaPequena },
         { id: 32, name: "Fanta Laranja Lata",  obs: "350ml",   price: 5.00,  img: fantaPequena },
-        { id: 33, name: "Fanta Uva Lata",      obs: "350ml",   price: 5.00,  img: null, icon: "🥤" },
-        { id: 34, name: "Coca-Cola Zero Lata", obs: null,      price: 5.00,  img: null, icon: "🥤" },
-        { id: 35, name: "Guaraná Lata",        obs: null,      price: 5.00,  img: null, icon: "🥤" },
-        { id: 36, name: "Schweppes Lata",      obs: "350ml",   price: 5.00,  img: null, icon: "🥤" },
-        { id: 37, name: "Sprite Lata",         obs: "350ml",   price: 5.00,  img: null, icon: "🥤" },
+        { id: 33, name: "Fanta Uva Lata",      obs: "350ml",   price: 5.00,  img: fantaUvaImg },
+        { id: 34, name: "Coca-Cola Zero Lata", obs: null,      price: 5.00,  img: cocaZeroImg },
+        { id: 35, name: "Guaraná Lata",        obs: null,      price: 5.00,  img: guaranaLataImg },
+        { id: 36, name: "Schweppes Lata",      obs: "350ml",   price: 5.00,  img: schweppesImg },
+        { id: 37, name: "Sprite Lata",         obs: "350ml",   price: 5.00,  img: spriteImg },
         { id: 38, name: "Mostè",               obs: "473ml",   price: 13.00, img: monster },
         { id: 39, name: "Fanta",               obs: "1 Litro", price: 8.00,  img: fanta1L },
         { id: 40, name: "Coca-Cola",           obs: "1 Litro", price: 10.00, img: coca1L },
-        { id: 41, name: "Coca-Cola Zero",      obs: "1 Litro", price: 10.00, img: null, icon: "🥤" },
-        { id: 42, name: "Guaraná",             obs: "1 Litro", price: 8.00,  img: null, icon: "🥤" },
+        { id: 41, name: "Coca-Cola Zero",      obs: "1 Litro", price: 10.00, img: cocaZeroImg },
+        { id: 42, name: "Guaraná",             obs: "1 Litro", price: 8.00,  img: guarana1LImg },
       ],
       potes: [
-        { id: 60, name: "Pote de Açaí",    obs: "1 litro",   price: 17.00, img: null, icon: "🫐", descricao: "Pote de açaí cremoso de 1 litro. Acompanha granola, leite condensado e leite em pó." },
-        { id: 61, name: "Pote de Sorvete", obs: "2 litros",   price: 32.00, img: null, icon: "🍨", descricao: "Pote de sorvete cremoso de 2 litros." },
-        { id: 62, name: "Combo",           obs: "2 Mini Hambúrguer + 1 Del Valle", price: 20.00, img: null, icon: "🍔", descricao: "2 Mini Hambúrgueres artesanais + 1 Del Valle gelado." },
-        { id: 63, name: "Combo",           obs: "Serve 2 pessoas", price: 30.00, img: null, icon: "🍔", descricao: "Combo de hambúrgueres para 2 pessoas." },
-        { id: 64, name: "Combo",           obs: "Serve 3 pessoas", price: 45.00, img: null, icon: "🍔", descricao: "Combo de hambúrgueres para 3 pessoas." },
+        { id: 60, name: "Pote de Açaí",    obs: "900ml litro",   price: 17.00, img: acaiComLeiteImg, descricao: "Pote de açaí cremoso de 1 litro. Acompanha granola, leite condensado e leite em pó." },
+        { id: 61, name: "Pote de Sorvete", obs: "2 litros",   price: 32.00, img: trufasImg,       descricao: "Pote de sorvete cremoso de 2 litros." },
+        { id: 62, name: "Combo",           obs: "2 Mini Hambúrguer + 1 Del Valle", price: 20.00, img: doisHambDelValleImg, descricao: "2 Mini Hambúrgueres artesanais + 1 Del Valle gelado." },
+        { id: 63, name: "Combo",           obs: "Serve 2 pessoas", price: 30.00, img: comboHambImg, descricao: "Combo de hambúrgueres para 2 pessoas." },
+        { id: 64, name: "Combo",           obs: "Serve 3 pessoas", price: 45.00, img: comboHambImg, descricao: "Combo de hambúrgueres para 3 pessoas." },
+        { id: 72, name: "Combo",           obs: "2 Hambúrgueres + Batata G + Refri 500ml", price: 38.00, img: novoComboImg, icon: "🍔", descricao: "2 Hambúrgueres artesanais + Batata Gourmet + Refri 500ml." },
       ],
       sorvetes: [
-        { id: 65, name: "Copinho",    obs: "2 bolas",  price: 6.00,  img: null, icon: "🍦", zapFlavor: true },
-        { id: 66, name: "Casquinha",  obs: "2 bolas",  price: 7.00,  img: null, icon: "🍦", zapFlavor: true },
-        { id: 67, name: "Sestinha",   obs: "2 bolas",  price: 8.00,  img: null, icon: "🍦", zapFlavor: true },
-        { id: 68, name: "Milk Shake", obs: "300ml",    price: 10.00, img: null, icon: "🥤", zapFlavor: true },
-        { id: 69, name: "Milk Shake", obs: "400ml",    price: 12.00, img: null, icon: "🥤", zapFlavor: true },
-        { id: 70, name: "Milk Shake", obs: "500ml",    price: 14.00, img: null, icon: "🥤", zapFlavor: true },
-        { id: 71, name: "Milk Shake", obs: "700ml",    price: 17.00, img: null, icon: "🥤", zapFlavor: true },
+        { id: 65, name: "Copinho",    obs: "2 bolas",  price: 6.00,  img: picolerImg,   icon: "🍦", zapFlavor: true },
+        { id: 66, name: "Casquinha",  obs: "2 bolas",  price: 7.00,  img: picolerImg,   icon: "🍦", zapFlavor: true },
+        { id: 67, name: "Sestinha",   obs: "2 bolas",  price: 8.00,  img: picolerImg,   icon: "🍦", zapFlavor: true },
+        { id: 68, name: "Milk Shake", obs: "300ml",    price: 10.00, img: milkShakeImg, icon: "🥤", zapFlavor: true },
+        { id: 69, name: "Milk Shake", obs: "400ml",    price: 12.00, img: milkShakeImg, icon: "🥤", zapFlavor: true },
+        { id: 70, name: "Milk Shake", obs: "500ml",    price: 14.00, img: milkShakeImg, icon: "🥤", zapFlavor: true },
+        { id: 71, name: "Milk Shake", obs: "700ml",    price: 17.00, img: milkShakeImg, icon: "🥤", zapFlavor: true },
       ],
       sobremesas: [
         { id: 43, name: "Sobremesa", obs: null, price: 5.00, img: pudimImg, opcoes: ["Pudim", "Musse de Limão", "Musse de Maracujá"] },
@@ -169,8 +186,8 @@ const Data = [
       { emoji: "🥜", nome: "Paçoca",            preco: "R$ 2,00", price: 2.00 },
       { emoji: "🍬", nome: "M&M",               preco: "R$ 2,00", price: 2.00 },
       { emoji: "🍭", nome: "Jujuba",            preco: "R$ 2,00", price: 2.00 },
-      { emoji: "🥛", nome: "Farinha de Lactose", preco: "R$ 2,00", price: 2.00 },
-      { emoji: "🥚", nome: "Ovo de Maltine",    preco: "R$ 2,00", price: 2.00 },
+      { emoji: "🥛", nome: "Farinha Láctea",     preco: "R$ 2,00", price: 2.00 },
+      { emoji: "🥚", nome: "Ovomaltine",         preco: "R$ 2,00", price: 2.00 },
       { emoji: "🍫", nome: "Nutella",           preco: "R$ 4,00", price: 4.00, especial: true },
     ]
   }

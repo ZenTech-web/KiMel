@@ -1,12 +1,12 @@
 // [h, m] = hora e minuto
 const SCHEDULE = {
-  0: { open: [14, 0],  close: [22, 45] }, // Domingo
+  0: { open: [14, 0],  close: [22, 30] }, // Domingo
   1: { open: [8,  30], close: [22, 30] }, // Segunda
   2: null,                                 // Terça — FECHADO
   3: { open: [8,  30], close: [22, 30] }, // Quarta
   4: { open: [8,  30], close: [22, 30] }, // Quinta
   5: { open: [8,  30], close: [22, 30] }, // Sexta
-  6: { open: [8,  30], close: [18,  0] }, // Sábado
+  6: { open: [9,   0], close: [22, 30] }, // Sábado
 }
 
 export const useStoreStatus = () => {

@@ -52,6 +52,7 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
   const { cartItems, cartTotal, clearCart } = useCart()
   const { isOpen, message, type } = useStoreStatus()
 
+  const [pixCopiado, setPixCopiado]   = useState(false)
   const [nome, setNome]               = useState("")
   const [receber, setReceber]         = useState(null)
   const [pagamento, setPagamento]     = useState(null)
@@ -161,7 +162,7 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
             <div className="flex flex-col gap-3 bg-white rounded-2xl p-4 border-2 border-gray-100">
               <div className="flex justify-between items-center">
                 <p className="text-dark font-nunito font-bold text-[13px]">Endereço de entrega</p>
-                <span className="text-orange text-[11px] font-nunito font-bold">+ taxa de entrega</span>
+                <span className="text-orange text-[11px] font-nunito font-bold">+ R$ 2,00 taxa de entrega</span>
               </div>
               <div>
                 <label className={labelClass}>Endereço <span className="text-orange">*</span></label>
@@ -200,11 +201,26 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
 
           {/* Pix */}
           {pagamento === "Pix" && (
-            <div className="flex items-start gap-2.5 bg-green-50 border border-green-200 rounded-2xl p-3.5">
-              <FaWhatsapp className="text-green-500 text-[20px] shrink-0 mt-0.5" />
-              <p className="text-green-700 text-[12px] font-nunito leading-relaxed">
-                O pedido só será liberado após o envio do comprovante de pagamento via WhatsApp. Aguarde a confirmação antes de buscar.
-              </p>
+            <div className="flex flex-col gap-2.5 bg-green-50 border border-green-200 rounded-2xl p-3.5">
+              <div className="flex items-start gap-2.5">
+                <FaWhatsapp className="text-green-500 text-[20px] shrink-0 mt-0.5" />
+                <p className="text-green-700 text-[12px] font-nunito leading-relaxed">
+                  O pedido só será liberado após o envio do comprovante de pagamento via WhatsApp. Aguarde a confirmação antes de buscar.
+                </p>
+              </div>
+              <div className="bg-white rounded-xl border border-green-200 px-3 py-2.5">
+                <p className="text-gray-400 text-[10px] font-nunito font-bold uppercase tracking-wide mb-1">Chave Pix — CNPJ</p>
+                <button
+                  onClick={() => { navigator.clipboard.writeText("56341709000105"); setPixCopiado(true); setTimeout(() => setPixCopiado(false), 2000) }}
+                  className="w-full text-left"
+                >
+                  <p className="text-dark font-nunito font-black text-[15px] tracking-wider">56341709000105</p>
+                  <p className="text-gray-400 text-[11px] font-nunito mt-0.5">Joedon Francisco de Oliveira</p>
+                  <p className={`text-[11px] font-nunito font-bold mt-1 transition-colors ${pixCopiado ? "text-green-700" : "text-green-600"}`}>
+                    {pixCopiado ? "✓ Copiado!" : "Toque para copiar"}
+                  </p>
+                </button>
+              </div>
             </div>
           )}
 
@@ -225,6 +241,11 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
                   </button>
                 ))}
               </div>
+              {tipoCartao === "Crédito" && (
+                <p className="mt-2 text-orange text-[12px] font-nunito font-medium">
+                  Pagamentos no crédito têm acréscimo.
+                </p>
+              )}
             </div>
           )}
 
