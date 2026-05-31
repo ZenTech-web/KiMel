@@ -133,7 +133,7 @@ const Acaí = () => {
       <div className="flex flex-col items-center gap-3 px-5 mt-6 w-full max-w-sm mx-auto">
         <div className="w-full bg-white rounded-2xl px-4 py-3 shadow-sm text-[13px] text-gray-600 font-nunito">
           <p className="font-bold text-gray-700 mb-1">🧾 O que o açaí já vem:</p>
-          <p>Granola · Leite condensado · Leite em pó</p>
+          <p>Granola · Leite condensado · Leite em pó · Farinha de amendoim</p>
         </div>
         <textarea
           value={observacao}

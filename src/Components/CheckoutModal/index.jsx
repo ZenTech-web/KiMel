@@ -4,7 +4,7 @@ import { FaWhatsapp } from "react-icons/fa"
 import { useStoreStatus } from "../../hooks/useStoreStatus"
 import { useCart } from "../../Context/CartContext"
 
-const WHATSAPP_NUMBER = "5581993826043"
+const WHATSAPP_NUMBER = "5581996038222"
 
 const formasReceber = [
   { key: "retirada", icon: <MdStorefront size={24} />,     label: "Retirada"       },

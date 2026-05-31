@@ -8,6 +8,7 @@ import hamburgerSupremo from "../assets/img/HaburqueSupremo.png"
 import xRaizImg from "../assets/img/Xraiz.png"
 import novoComboImg from "../assets/img/novoHamburquerCombo.png"
 import batata from "../assets/img/batataFlita.png"
+import batataFritaImg from "../assets/img/batataFrita.png"
 import coxinha from "../assets/img/coxinha.png"
 import tapiocaPlato from "../assets/img/tapiocaNoPlato.png"
 import tapiocaFrango from "../assets/img/tapiocaFrango.png"
@@ -95,8 +96,8 @@ const Data = [
         { id: 17, name: "Supremo", obs: null, price: 27.00, img: hamburgerSupremo, descricao: "Pão gergelim, 2 carnes artesanais, presunto, mussarela, calabresa, salsicha, frango desfiado, ovo, alface, tomate, cheddar, molho especial e molho barbecue." },
       ],
       batata: [
-        { id: 18, name: "Batata Gourmet", obs: null, price: 18.00, img: batata, descricao: "Batata frita, presunto, calabresa, cheddar, molho especial e queijo ralado." },
-        { id: 19, name: "Batata Frita",   obs: null, price: 12.00, img: batata, descricao: "Ketchup e queijo ralado." },
+        { id: 18, name: "Batata Gourmet", obs: null, price: 18.00, img: batata, descricao: "Batata frita, calabresa, cheddar, molho especial e queijo ralado." },
+        { id: 19, name: "Batata Frita",   obs: null, price: 12.00, img: batataFritaImg, descricao: "Ketchup e queijo ralado." },
       ],
       coxinha: [
         { id: 20, name: "Coxinha", obs: "unidade", price: 5.00, img: coxinha },
@@ -134,7 +135,7 @@ const Data = [
         { id: 42, name: "Guaraná",             obs: "1 Litro", price: 8.00,  img: guarana1LImg },
       ],
       potes: [
-        { id: 60, name: "Pote de Açaí",    obs: "900ml litro",   price: 17.00, img: acaiComLeiteImg, descricao: "Pote de açaí cremoso de 1 litro. Acompanha granola, leite condensado e leite em pó." },
+        { id: 60, name: "Pote de Açaí",    obs: "900ml",         price: 17.00, img: acaiComLeiteImg, descricao: "Pote de açaí cremoso de 900ml. Acompanha granola, leite condensado e leite em pó." },
         { id: 61, name: "Pote de Sorvete", obs: "2 litros",   price: 32.00, img: trufasImg,       descricao: "Pote de sorvete cremoso de 2 litros." },
         { id: 62, name: "Combo",           obs: "2 Mini Hambúrguer + 1 Del Valle", price: 20.00, img: doisHambDelValleImg, descricao: "2 Mini Hambúrgueres artesanais + 1 Del Valle gelado." },
         { id: 63, name: "Combo",           obs: "Serve 2 pessoas", price: 30.00, img: comboHambImg, descricao: "Combo de hambúrgueres para 2 pessoas." },
