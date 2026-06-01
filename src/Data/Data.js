@@ -140,7 +140,7 @@ const Data = [
         { id: 62, name: "Combo",           obs: "2 Mini Hambúrguer + 1 Del Valle", price: 20.00, img: doisHambDelValleImg, descricao: "2 Mini Hambúrgueres artesanais + 1 Del Valle gelado." },
         { id: 63, name: "Combo",           obs: "Serve 2 pessoas", price: 30.00, img: comboHambImg, descricao: "Combo de hambúrgueres para 2 pessoas." },
         { id: 64, name: "Combo",           obs: "Serve 3 pessoas", price: 45.00, img: comboHambImg, descricao: "Combo de hambúrgueres para 3 pessoas." },
-        { id: 72, name: "Combo",           obs: "2 Hambúrgueres + Batata G + Refri 1L",    price: 38.00, img: novoComboImg, icon: "🍔", descricao: "2 Hambúrgueres artesanais + Batata Gourmet + Refri 1 Litro." },
+        { id: 72, name: "Combo",           obs: "2 Hambúrgueres + Batata + Refri 1L",      price: 38.00, img: novoComboImg, icon: "🍔", descricao: "2 Hambúrgueres artesanais + Batata + Refri 1 Litro." },
       ],
       sorvetes: [
         { id: 65, name: "Copinho",    obs: "2 bolas",  price: 6.00,  img: picolerImg,   icon: "🍦", zapFlavor: true },
