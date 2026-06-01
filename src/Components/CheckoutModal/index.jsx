@@ -5,6 +5,7 @@ import { useStoreStatus } from "../../hooks/useStoreStatus"
 import { useCart } from "../../Context/CartContext"
 
 const WHATSAPP_NUMBER = "5581996038222"
+const DELIVERY_FEE = 2.00
 
 const formasReceber = [
   { key: "retirada", icon: <MdStorefront size={24} />,     label: "Retirada"       },
@@ -43,7 +44,12 @@ const buildMessage = ({ nome, receber, pagamento, tipoCartao, troco, valorTroco,
     msg += `${item.icon || "•"} *${item.name}*${desc} x${qty} — R$ ${total}\n`
   })
 
-  msg += `\n💰 *Total: R$ ${cartTotal.toFixed(2).replace(".", ",")}*`
+  if (receber === "entrega") {
+    msg += `🚚 *Taxa de entrega:* R$ 2,00\n`
+  }
+
+  const total = cartTotal + (receber === "entrega" ? DELIVERY_FEE : 0)
+  msg += `\n💰 *Total: R$ ${total.toFixed(2).replace(".", ",")}*`
 
   return msg
 }
@@ -90,7 +96,7 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
         quantity: item.quantity || 1,
         price: item.price,
       })),
-      total: cartTotal,
+      total: cartTotal + (receber === "entrega" ? DELIVERY_FEE : 0),
       ts: Date.now(),
     }
 
@@ -270,6 +276,19 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
                   />
                 </div>
               )}
+            </div>
+          )}
+
+          {/* Total com entrega */}
+          {receber === "entrega" && (
+            <div className="flex justify-between items-center bg-white rounded-2xl px-4 py-3 border-2 border-gray-100">
+              <div className="text-[12px] font-nunito text-gray-500">
+                <p>Subtotal: R$ {cartTotal.toFixed(2).replace(".", ",")}</p>
+                <p>Taxa de entrega: R$ 2,00</p>
+              </div>
+              <p className="font-black text-dark text-[18px]">
+                R$ {(cartTotal + DELIVERY_FEE).toFixed(2).replace(".", ",")}
+              </p>
             </div>
           )}
 
