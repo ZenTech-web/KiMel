@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { BsCart3 } from "react-icons/bs"
+import { IoChevronBack } from "react-icons/io5"
 
 const Header = ({ title, bg, icon, onCartClick, cartCount = 0 }) => {
     return (
@@ -8,8 +9,8 @@ const Header = ({ title, bg, icon, onCartClick, cartCount = 0 }) => {
 
         <div className="flex gap-2.5">
             <Link to="/">
-            <div className="text-white text-[16px] font-bold w-9 h-9 bg-white/20 rounded-[8px] flex justify-center items-center">
-                &lt;
+            <div className="text-white w-9 h-9 bg-white/20 rounded-lg flex justify-center items-center">
+                <IoChevronBack size={20} />
             </div>
             </Link>
             <div className="flex items-center">

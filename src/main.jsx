@@ -8,6 +8,9 @@ import NotFound from './Pages/NotFound/index.jsx'
 import Acaí from './Pages/Acaí/index.jsx'
 import Snack from './Pages/Snack/index.jsx'
 import Pedido from './Pages/Pedido/index.jsx'
+import Login from './Pages/Login/index.jsx'
+import Dashboard from './Pages/Dashboard/index.jsx'
+import ProtectedRoute from './Components/ProtectedRoute/index.jsx'
 import { CartProvider } from './Context/CartContext.jsx'
 
 const router = createBrowserRouter([
@@ -22,6 +25,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/pedido", element: <Pedido/>
+  },
+  {
+    path: "/login", element: <Login/>
+  },
+  {
+    element: <ProtectedRoute />,
+    children: [
+      { path: "/dashboard", element: <Dashboard /> }
+    ]
   },
   {
     path: "*", element: <NotFound/>

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { FiUser } from "react-icons/fi"
 import StoreBanner from "../../Components/StoreBanner"
 import { useStoreStatus } from "../../hooks/useStoreStatus"
 
@@ -7,7 +8,10 @@ const Main = () => {
 
     return (
      <>
-     <main className="bgAcai min-h-screen flex flex-col items-center justify-center px-8 font-nunito">
+     <main className="bgAcai min-h-screen flex flex-col items-center justify-center px-8 font-nunito relative">
+      <Link to="/login" className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/30 flex items-center justify-center text-dark hover:bg-white/50 transition-colors">
+        <FiUser size={18} />
+      </Link>
       {!isOpen && <StoreBanner message={message} type={type} />}
 
       <div className="flex flex-col items-center mb-2">
