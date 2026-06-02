@@ -74,8 +74,8 @@ const Data = [
         { id: 58, name: "Salada de Frutas", obs: "500ml", price: 11.00, img: saladaFrutasImg, descricao: "Acompanha leite condensado, leite em pó ou granola.", opcoes: ["Leite Condensado e Leite em Pó", "Granola"] },
       ],
       cachorroQuente: [
-        { id: 5, name: "Cachorro Quente", obs: "G", price: 10.00, img: cachorroQuenteImg, descricao: "Pão 15cm, salsicha, carne ou frango, salada, ovo de codorna, queijo ralado, cheddar, molho especial e batata palha." },
-        { id: 6, name: "Cachorro Quente", obs: "P", price: 7.00,  img: cachorroQuenteImg, descricao: "Pão sedã, salsicha, carne ou frango, salada, queijo ralado, molho especial e batata palha." },
+        { id: 5, name: "Cachorro Quente", obs: "G", price: 10.00, img: cachorroQuenteImg, opcoes: ["Frango", "Carne"], descricao: "Pão 15cm, salsicha, carne ou frango, salada, ovo de codorna, queijo ralado, cheddar, molho especial e batata palha." },
+        { id: 6, name: "Cachorro Quente", obs: "P", price: 7.00,  img: cachorroQuenteImg, opcoes: ["Frango", "Carne"], descricao: "Pão sedã, salsicha, carne ou frango, salada, queijo ralado, molho especial e batata palha." },
       ],
       mistos: [
         { id: 7, name: "Misto Tradicional", obs: null, price: 5.00,  img: misto,      descricao: "Pão de forma, presunto e mussarela." },
@@ -84,8 +84,8 @@ const Data = [
         { id: 20, name: "Coxinha", obs: "unidade", price: 5.00,  img: coxinha },
       ],
       hamburgueres: [
-        { id: 5,  name: "Cachorro Quente", obs: "G", price: 10.00, img: cachorroQuenteImg, descricao: "Pão 15cm, salsicha, carne ou frango, salada, ovo de codorna, queijo ralado, cheddar, molho especial e batata palha." },
-        { id: 6,  name: "Cachorro Quente", obs: "P", price: 7.00,  img: cachorroQuenteImg, descricao: "Pão sedã, salsicha, carne ou frango, salada, queijo ralado, molho especial e batata palha." },
+        { id: 5,  name: "Cachorro Quente", obs: "G", price: 10.00, img: cachorroQuenteImg, opcoes: ["Frango", "Carne"], descricao: "Pão 15cm, salsicha, carne ou frango, salada, ovo de codorna, queijo ralado, cheddar, molho especial e batata palha." },
+        { id: 6,  name: "Cachorro Quente", obs: "P", price: 7.00,  img: cachorroQuenteImg, opcoes: ["Frango", "Carne"], descricao: "Pão sedã, salsicha, carne ou frango, salada, queijo ralado, molho especial e batata palha." },
         { id: 10, name: "Mini Hambúrguer", obs: null, price: 10.00, img: hamburger,       descricao: "Mini pão, carne artesanal, presunto, mussarela, molho especial e molho barbecue." },
         { id: 11, name: "Tradicional",     obs: null, price: 11.00, img: hamburger,       descricao: "Pão bola, carne tradicional, presunto, mussarela, alface, tomate, molho especial e molho barbecue." },
         { id: 12, name: "Burguer",         obs: null, price: 13.00, img: hamburger,       descricao: "Pão bola, carne artesanal, presunto, mussarela, alface, tomate, molho especial e molho barbecue." },

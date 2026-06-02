@@ -22,6 +22,7 @@
 
   /* Animações */
   --animate-float: float 3s ease-in-out infinite;
+  --animate-cart-shake: cart-shake 0.5s ease-in-out;
 
   /* Gradientes */
   --background-image-gradient-banner:       linear-gradient(to right, #ff7e47, #e05319);
@@ -38,6 +39,14 @@
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50%       { transform: translateY(-12px); }
+}
+
+@keyframes cart-shake {
+  0%, 100% { transform: rotate(0deg) scale(1);    }
+  20%       { transform: rotate(-18deg) scale(1.2); }
+  40%       { transform: rotate(18deg) scale(1.2);  }
+  60%       { transform: rotate(-12deg) scale(1.1); }
+  80%       { transform: rotate(12deg) scale(1.1);  }
 }
 
 .bgAcai {
