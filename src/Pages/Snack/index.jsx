@@ -38,7 +38,7 @@ const Snack = () => {
       <Header bg="var(--background-image-gradient-header)" onCartClick={() => setCartOpen(true)} cartCount={cartItems.length} title="Cardápio" icon={<TbChefHatFilled className="text-4xl text-yellow" />}/>
 
       <main className="bg-cream pb-12">
-      {!isOpen && <StoreBanner message={message} type={type} />}
+      {!isOpen && message && <StoreBanner message={message} type={type} />}
 
       <section className="max-w-5xl mx-auto py-5 bg-gradient-banner">
         <h1 className="text-center text-white text-2xl font-black">Ki <span className="text-yellow-dark">Mel</span> Sorveteria</h1>

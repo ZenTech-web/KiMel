@@ -12,7 +12,7 @@ const Main = () => {
       <Link to="/login" className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/30 flex items-center justify-center text-dark hover:bg-white/50 transition-colors">
         <FiUser size={18} />
       </Link>
-      {!isOpen && <StoreBanner message={message} type={type} />}
+      {!isOpen && message && <StoreBanner message={message} type={type} />}
 
       <div className="flex flex-col items-center mb-2">
         <span className="animate-float inline-block" style={{ fontSize: 64 }}>🍦</span>

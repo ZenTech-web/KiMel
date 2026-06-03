@@ -119,7 +119,7 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
 
       <div className="relative bg-cream w-full max-w-sm rounded-3xl overflow-hidden shadow-2xl max-h-[92vh] flex flex-col">
 
-        {!isOpen && (
+        {!isOpen && message && (
           <div className={`px-4 py-2.5 text-white text-[12px] font-nunito font-bold text-center flex items-center justify-center gap-1.5 shrink-0 ${type === "closed-today" ? "bg-red-600" : "bg-orange"}`}>
             {type === "closed-today" ? "🔴" : "🟠"} {message}
           </div>

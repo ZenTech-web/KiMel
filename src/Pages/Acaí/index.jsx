@@ -39,7 +39,7 @@ const Acaí = () => {
      <Header bg="var(--background-image-gradient-header-acair)" title="Monte seu Açaí" icon={<span className="text-4xl">🫐</span>} onCartClick={() => setCartOpen(true)} cartCount={cartItems.length}/>
        
      <main className="bg-acai-pale pb-7">
-     {!isOpen && <StoreBanner message={message} type={type} />}
+     {!isOpen && message && <StoreBanner message={message} type={type} />}
 
      <section className="bg-gradient-banner-acair flex flex-col items-center py-5 max-w-5xl mx-auto">
           <div className="uppercase text-white text-[12px] border border-white py-1 px-2 rounded-2xl bg-white/20 font-nunito font-bold">
