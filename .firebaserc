@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "kimel": "kimel-7b947",
+    "default": "kimel-7b947"
+  },
+  "targets": {},
+  "etags": {}
+}
