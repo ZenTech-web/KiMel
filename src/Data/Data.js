@@ -33,14 +33,26 @@ import pudimImg from "../assets/img/pudim.png"
 import cachorroQuenteImg from "../assets/img/cachorro-quente.png"
 import milkShakeImg from "../assets/img/milk.png"
 import picolerImg from "../assets/img/sorvetes.png"
+import sorveteCopo2Img from "../assets/img/soveteNoCopo2bolas.png"
+import sorveteCestaImg from "../assets/img/soveteNaCesta.png"
 import acaiComLeiteImg from "../assets/img/açaí-900ml_mockup.png"
-import trufasImg from "../assets/img/trufas.png"
+import sorvete2lImg from "../assets/img/sorvete2l-removebg-preview.png"
 import fantaUvaImg from "../assets/img/fantaUva.png"
 import cocaZeroImg from "../assets/img/coca-cola-zero.png"
 import schweppesImg from "../assets/img/schweppes.png"
 import spriteImg from "../assets/img/sprit.png"
 import doisHambDelValleImg from "../assets/img/2haburqueEUmDEll.png"
 import comboHambImg from "../assets/img/comboHanbuque2e3.png"
+import aguaH20Img from "../assets/img/AguaH20.png"
+import sucoMaracujaImg from "../assets/img/sucoDeMaracujar.png"
+import sucoGrviolaImg from "../assets/img/sucoDeGraviola.png"
+import sucoPinhaImg from "../assets/img/Gemini_Generated_Image_79aifg79aifg79ai-removebg-preview.png"
+import sucoAcerolaImg from "../assets/img/sucoDeAcerola-removebg-preview.png"
+import sucoCajaImg from "../assets/img/sucoDEcaja.png"
+import sucoMangaImg from "../assets/img/suco-de-manga.png"
+import sucoUmbuImg from "../assets/img/Suco-de-Umbu-removebg-preview.png"
+import sucoMorangoImg from "../assets/img/suco-de-morango.png"
+import sucoCajuImg from "../assets/img/sucodeCaju-removebg-preview.png"
 import guaranaLataImg from "../assets/img/GuaranaLata.png"
 import guarana1LImg from "../assets/img/garanar1l.png"
 import saladaFrutasImg from "../assets/img/saladaDeFlutas.png"
@@ -54,8 +66,8 @@ const Data = [
       { id: 4, icon: "🍔", name: "Hambúrguer & Dog",  type: "Artesanais e Cachorro Quente", fix: "#FF7A3C", fixImg: "#FFE8DC", key: "hamburgueres" },
       { id: 5, icon: "🌽", name: "Cuscuz Recheado",  type: "Feito na hora",          fix: "#A855F7", fixImg: "#F3E8FF", key: "cuscuz" },
       { id: 6, icon: "🫓", name: "Tapioca",          type: "Doce ou salgada",        fix: "#3B82F6", fixImg: "#EFF6FF", key: "tapioca" },
-      { id: 7, icon: "🍭", name: "Sobremesa",        type: "Para adoçar o dia",      fix: "#EC4899", fixImg: "#FDF2F8", key: "sobremesas" },
-      { id: 8, icon: "🥤", name: "Bebidas",          type: "Geladas e saborosas",    fix: "#10B981", fixImg: "#ECFDF5", key: "bebidas" },
+      { id: 7, icon: "🍭", name: "Sobremesas e Salgados", type: "Para adoçar o dia",  fix: "#EC4899", fixImg: "#FDF2F8", key: "sobremesas" },
+      { id: 8, icon: "🥤", name: "Bebidas e Sucos",   type: "Geladas e saborosas",    fix: "#10B981", fixImg: "#ECFDF5", key: "bebidas" },
       { id: 9,  icon: "🥪", name: "Misto e Coxinha",  type: "Quentes e saborosos",    fix: "#F59E0B", fixImg: "#FEF3C7", key: "mistos" },
       { id: 10, icon: "🫕", name: "Potes e Combos",    type: "Cremoso e gelado",        fix: "#7C3AED", fixImg: "#EDE9FE", key: "potes" },
     ]
@@ -116,6 +128,8 @@ const Data = [
       bebidas: [
         { id: 24, name: "Água sem Gás",       obs: null,      price: 2.00,  img: agua },
         { id: 25, name: "Água com Gás",        obs: null,      price: 4.00,  img: aguaGas },
+        { id: 73, name: "H2O",                 obs: "300ml",   price: 4.00,  img: aguaH20Img, icon: "💧" },
+        { id: 74, name: "H2O",                 obs: "500ml",   price: 6.00,  img: aguaH20Img, icon: "💧" },
         { id: 26, name: "Santa Joana Cola",    obs: "250ml",   price: 2.00,  img: santaJoanaCola },
         { id: 27, name: "Santa Joana Guaraná", obs: "250ml",   price: 2.00,  img: santaJoanaGuarana },
         { id: 28, name: "Santa Joana Fanta",   obs: "250ml",   price: 2.00,  img: santaJoanaFanta },
@@ -133,34 +147,41 @@ const Data = [
         { id: 40, name: "Coca-Cola",           obs: "1 Litro", price: 10.00, img: coca1L },
         { id: 41, name: "Coca-Cola Zero",      obs: "1 Litro", price: 10.00, img: cocaZeroImg },
         { id: 42, name: "Guaraná",             obs: "1 Litro", price: 8.00,  img: guarana1LImg },
+        { id: 80, name: "Suco", obs: "Maracujá", price: 5.00, img: sucoMaracujaImg, icon: "🥤", opcoes: ["Sem leite", "Com leite"], precoOpcoes: { "Sem leite": 5.00, "Com leite": 6.00 } },
+        { id: 81, name: "Suco", obs: "Acerola",  price: 5.00, img: sucoAcerolaImg, icon: "🥤", opcoes: ["Sem leite", "Com leite"], precoOpcoes: { "Sem leite": 5.00, "Com leite": 6.00 } },
+        { id: 82, name: "Suco", obs: "Cajá",     price: 5.00, img: sucoCajaImg,    icon: "🥤", opcoes: ["Sem leite", "Com leite"], precoOpcoes: { "Sem leite": 5.00, "Com leite": 6.00 } },
+        { id: 83, name: "Suco", obs: "Graviola", price: 5.00, img: sucoGrviolaImg,  icon: "🥤", opcoes: ["Sem leite", "Com leite"], precoOpcoes: { "Sem leite": 5.00, "Com leite": 6.00 } },
+        { id: 84, name: "Suco", obs: "Manga",    price: 5.00, img: sucoMangaImg,   icon: "🥤", opcoes: ["Sem leite", "Com leite"], precoOpcoes: { "Sem leite": 5.00, "Com leite": 6.00 } },
+        { id: 85, name: "Suco", obs: "Umbu",     price: 5.00, img: sucoUmbuImg,    icon: "🥤", opcoes: ["Sem leite", "Com leite"], precoOpcoes: { "Sem leite": 5.00, "Com leite": 6.00 } },
+        { id: 86, name: "Suco", obs: "Pinha",    price: 5.00, img: sucoPinhaImg,   icon: "🥤", opcoes: ["Sem leite", "Com leite"], precoOpcoes: { "Sem leite": 5.00, "Com leite": 6.00 } },
+        { id: 87, name: "Suco", obs: "Morango",  price: 5.00, img: sucoMorangoImg, icon: "🥤", opcoes: ["Sem leite", "Com leite"], precoOpcoes: { "Sem leite": 5.00, "Com leite": 6.00 } },
+        { id: 88, name: "Suco", obs: "Caju",     price: 5.00, img: sucoCajuImg,    icon: "🥤", opcoes: ["Sem leite", "Com leite"], precoOpcoes: { "Sem leite": 5.00, "Com leite": 6.00 } },
       ],
       potes: [
-        { id: 60, name: "Pote de Açaí",    obs: "900ml",         price: 17.00, img: acaiComLeiteImg, descricao: "Pote de açaí cremoso de 900ml. Acompanha granola, leite condensado e leite em pó." },
-        { id: 61, name: "Pote de Sorvete", obs: "2 litros",   price: 32.00, img: trufasImg,       descricao: "Pote de sorvete cremoso de 2 litros." },
-        { id: 62, name: "Combo",           obs: "2 Mini Hambúrguer + 1 Del Valle", price: 20.00, img: doisHambDelValleImg, descricao: "2 Mini Hambúrgueres artesanais + 1 Del Valle gelado." },
-        { id: 63, name: "Combo",           obs: "Serve 2 pessoas", price: 30.00, img: comboHambImg, descricao: "Combo de hambúrgueres para 2 pessoas." },
-        { id: 64, name: "Combo",           obs: "Serve 3 pessoas", price: 45.00, img: comboHambImg, descricao: "Combo de hambúrgueres para 3 pessoas." },
+        { id: 60, name: "Pote de Açaí",    obs: "900ml",    price: 17.00, img: acaiComLeiteImg, icon: "🫐", descricao: "Pote de açaí cremoso de 900ml. Acompanha granola, leite condensado e leite em pó." },
+        { id: 61, name: "Pote de Sorvete", obs: "2 litros", price: 32.00, img: sorvete2lImg,    icon: "🍨", descricao: "Pote de sorvete cremoso de 2 litros.", zapFlavor: true },
+        { id: 62, name: "Combo", obs: "2 Mini Hambúrguer + 1 Del Valle", price: 20.00, img: doisHambDelValleImg, icon: "🍔", descricao: "2 Mini Hambúrgueres artesanais + 1 Del Valle gelado." },
+        { id: 63, name: "Combo", obs: "Serve 2 pessoas",               price: 30.00, img: comboHambImg,        icon: "🍔", descricao: "Combo de hambúrgueres para 2 pessoas." },
+        { id: 64, name: "Combo", obs: "Serve 3 pessoas",               price: 45.00, img: comboHambImg,        icon: "🍔", descricao: "Combo de hambúrgueres para 3 pessoas." },
         { id: 72, name: "Combo",           obs: "2 Hambúrgueres + Batata + Refri 1L",      price: 38.00, img: novoComboImg, icon: "🍔", descricao: "2 Hambúrgueres artesanais + Batata + Refri 1 Litro." },
       ],
       sorvetes: [
-        { id: 65, name: "Copinho",    obs: "2 bolas",  price: 6.00,  img: picolerImg,   icon: "🍦", zapFlavor: true },
-        { id: 66, name: "Casquinha",  obs: "2 bolas",  price: 7.00,  img: picolerImg,   icon: "🍦", zapFlavor: true },
-        { id: 67, name: "Sestinha",   obs: "2 bolas",  price: 8.00,  img: picolerImg,   icon: "🍦", zapFlavor: true },
+        { id: 65, name: "Copinho",    obs: "2 bolas",  price: 6.00,  img: sorveteCopo2Img, icon: "🍦", zapFlavor: true },
+        { id: 66, name: "Casquinha",  obs: "2 bolas",  price: 7.00,  img: picolerImg,      icon: "🍦", zapFlavor: true },
+        { id: 67, name: "Sestinha",   obs: "2 bolas",  price: 8.00,  img: sorveteCestaImg, icon: "🍦", zapFlavor: true },
         { id: 68, name: "Milk Shake", obs: "300ml",    price: 10.00, img: milkShakeImg, icon: "🥤", zapFlavor: true },
         { id: 69, name: "Milk Shake", obs: "400ml",    price: 12.00, img: milkShakeImg, icon: "🥤", zapFlavor: true },
         { id: 70, name: "Milk Shake", obs: "500ml",    price: 14.00, img: milkShakeImg, icon: "🥤", zapFlavor: true },
         { id: 71, name: "Milk Shake", obs: "700ml",    price: 17.00, img: milkShakeImg, icon: "🥤", zapFlavor: true },
       ],
       sobremesas: [
-        { id: 43, name: "Sobremesa", obs: null, price: 5.00, img: pudimImg, opcoes: ["Pudim", "Musse de Limão", "Musse de Maracujá"] },
-      ],
-      salgadinhos: [
-        { id: 46, name: "Fandangos",  obs: "grande",  price: 3.00, img: fandangos },
-        { id: 47, name: "Fandangos",  obs: "pequeno", price: 2.00, img: fandangos },
-        { id: 48, name: "Cheetos",    obs: null,       price: 3.50, img: cheetos },
-        { id: 49, name: "Cebolotos",  obs: null,       price: 2.00, img: cebolitos },
-        { id: 50, name: "Doritos",    obs: null,       price: 5.00, img: doritos },
-        { id: 51, name: "Sensação",   obs: null,       price: 7.00, img: sensacao },
+        { id: 43, name: "Sobremesa", obs: null,      price: 5.00, img: pudimImg,  opcoes: ["Pudim", "Musse de Limão", "Musse de Maracujá"] },
+        { id: 46, name: "Fandangos", obs: "35g",     price: 3.00, img: fandangos },
+        { id: 47, name: "Fandangos", obs: "pequeno", price: 2.00, img: fandangos },
+        { id: 48, name: "Cheetos",   obs: null,      price: 3.50, img: cheetos },
+        { id: 49, name: "Cebolitos", obs: null,      price: 2.00, img: cebolitos },
+        { id: 50, name: "Doritos",   obs: null,      price: 5.00, img: doritos },
+        { id: 51, name: "Sensação",  obs: null,      price: 7.00, img: sensacao },
       ],
     }
   },

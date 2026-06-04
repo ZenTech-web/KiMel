@@ -46,7 +46,9 @@ const ProductModal = ({ product, onClose, onAdd }) => {
     const especialSelecionado = product.saboresEspeciais?.find(e => selectedSabores.includes(e.nome))
     const basePrice = especialSelecionado
         ? Math.max(product.price, especialSelecionado.preco)
-        : product.price
+        : (product.precoOpcoes && selectedOption)
+            ? (product.precoOpcoes[selectedOption] ?? product.price)
+            : product.price
     const adicionaisTotal = selectedAdicionais.reduce((sum, nome) => {
         return sum + (product.adicionais?.find(a => a.nome === nome)?.preco ?? 0)
     }, 0)
