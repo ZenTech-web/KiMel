@@ -128,8 +128,7 @@ const Data = [
       bebidas: [
         { id: 24, name: "Água sem Gás",       obs: null,      price: 2.00,  img: agua },
         { id: 25, name: "Água com Gás",        obs: null,      price: 4.00,  img: aguaGas },
-        { id: 73, name: "H2O",                 obs: "300ml",   price: 4.00,  img: aguaH20Img, icon: "💧" },
-        { id: 74, name: "H2O",                 obs: "500ml",   price: 6.00,  img: aguaH20Img, icon: "💧" },
+        { id: 73, name: "H2O",                 obs: null,   price: 4.00,  img: aguaH20Img, icon: "💧" },
         { id: 26, name: "Santa Joana Cola",    obs: "250ml",   price: 2.00,  img: santaJoanaCola },
         { id: 27, name: "Santa Joana Guaraná", obs: "250ml",   price: 2.00,  img: santaJoanaGuarana },
         { id: 28, name: "Santa Joana Fanta",   obs: "250ml",   price: 2.00,  img: santaJoanaFanta },
