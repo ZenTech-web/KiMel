@@ -34,6 +34,7 @@
   --background-image-gradient-btn-snack:    linear-gradient(135deg, #FF7A3C 0%, #C94500 100%);
   --background-image-gradient-divider:      linear-gradient(90deg, #FF4E8C, #FFD600);
   --background-image-gradient-main:         radial-gradient(ellipse at top, #FFD6E7 0%, #FFF0F8 50%, #FFF8E8 100%);
+  --animate-chama-atencao: pulsar-botao 1.5s infinite ease-in-out;
 }
 
 @keyframes float {
@@ -48,6 +49,17 @@
   60%       { transform: rotate(-12deg) scale(1.1); }
   80%       { transform: rotate(12deg) scale(1.1);  }
 }
+
+
+
+  @keyframes pulsar-botao {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.03); /* O botão cresce 8% sozinho */
+    }
+  }
 
 .bgAcai {
   background: var(--background-image-gradient-main);

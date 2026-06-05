@@ -58,7 +58,7 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
   const { cartItems, cartTotal, clearCart } = useCart()
   const { isOpen, message, type } = useStoreStatus()
 
-  const [pixCopiado, setPixCopiado]   = useState(false)
+  
   const [nome, setNome]               = useState("")
   const [receber, setReceber]         = useState(null)
   const [pagamento, setPagamento]     = useState(null)
@@ -211,22 +211,11 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
               <div className="flex items-start gap-2.5">
                 <FaWhatsapp className="text-green-500 text-[20px] shrink-0 mt-0.5" />
                 <p className="text-green-700 text-[12px] font-nunito leading-relaxed">
-                  O pedido só será liberado após o envio do comprovante de pagamento via WhatsApp. Aguarde a confirmação antes de buscar.
+                  O pedido só será liberado após o envio do comprovante de pagamento via WhatsApp. <span className="text-red-500 font-bold">Atenção:</span> Clique em finalizar pedido.
+                  <span className="text-red-500"> E digite seu nome no campo acima! </span>
                 </p>
               </div>
-              <div className="bg-white rounded-xl border border-green-200 px-3 py-2.5">
-                <p className="text-gray-400 text-[10px] font-nunito font-bold uppercase tracking-wide mb-1">Chave Pix — CNPJ</p>
-                <button
-                  onClick={() => { navigator.clipboard.writeText("56341709000105"); setPixCopiado(true); setTimeout(() => setPixCopiado(false), 2000) }}
-                  className="w-full text-left"
-                >
-                  <p className="text-dark font-nunito font-black text-[15px] tracking-wider">56341709000105</p>
-                  <p className="text-gray-400 text-[11px] font-nunito mt-0.5">Joedon Francisco de Oliveira</p>
-                  <p className={`text-[11px] font-nunito font-bold mt-1 transition-colors ${pixCopiado ? "text-green-700" : "text-green-600"}`}>
-                    {pixCopiado ? "✓ Copiado!" : "Toque para copiar"}
-                  </p>
-                </button>
-              </div>
+            
             </div>
           )}
 
@@ -296,7 +285,7 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
           <button
             onClick={handleConfirm}
             disabled={!canContinue}
-            className={`w-full py-4 rounded-2xl font-nunito font-black text-[16px] transition-all duration-200 flex items-center justify-center gap-2 ${canContinue ? 'bg-dark text-white cursor-pointer hover:opacity-90 active:scale-95' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
+            className={`w-full py-4 rounded-2xl font-nunito font-black text-[16px] transition-all duration-200 flex items-center justify-center gap-2 ${canContinue ? 'bg-dark text-white cursor-pointer hover:opacity-90 active:scale-95 animate-chama-atencao' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
           >
             <FaWhatsapp className={canContinue ? "text-green-400" : "text-gray-400"} />
             Finalizar pedido

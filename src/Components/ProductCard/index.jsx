@@ -28,7 +28,7 @@ const ProductCard = ({ icon, img, name, obs, price, zapFlavor, onAdd }) => {
             onClick={() => onAdd({ name, obs, price, icon, img })}
             className="w-full bg-gradient-banner text-white text-[11px] font-bold py-2.5 rounded-xl cursor-pointer hover:opacity-90 transition-opacity mt-auto"
           >
-            Adicionar
+            Ver lanche
           </button>
         </div>
       </div>
