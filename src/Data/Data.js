@@ -56,7 +56,7 @@ import sucoCajuImg from "../assets/img/sucodeCaju-removebg-preview.png"
 import guaranaLataImg from "../assets/img/GuaranaLata.png"
 import guarana1LImg from "../assets/img/garanar1l.png"
 import saladaFrutasImg from "../assets/img/saladaDeFlutas.png"
-
+import cocaLata from "../assets/img/Coca-cola.png";
 const Data = [
   {
     containerCategory: [
@@ -128,13 +128,13 @@ const Data = [
       bebidas: [
         { id: 24, name: "Água sem Gás",       obs: null,      price: 2.00,  img: agua },
         { id: 25, name: "Água com Gás",        obs: null,      price: 4.00,  img: aguaGas },
-        { id: 73, name: "H2O",                 obs: null,   price: 4.00,  img: aguaH20Img, icon: "💧" },
+        { id: 73, name: "H2O",                 obs: null,   price: 6.00,  img: aguaH20Img, icon: "💧" },
         { id: 26, name: "Santa Joana Cola",    obs: "250ml",   price: 2.00,  img: santaJoanaCola },
         { id: 27, name: "Santa Joana Guaraná", obs: "250ml",   price: 2.00,  img: santaJoanaGuarana },
         { id: 28, name: "Santa Joana Fanta",   obs: "250ml",   price: 2.00,  img: santaJoanaFanta },
         { id: 29, name: "Coca-Cola Pequena",   obs: null,      price: 3.00,  img: cocaPequena },
         { id: 30, name: "Fanta Pequena",       obs: null,      price: 3.00,  img: fantaPequena },
-        { id: 31, name: "Coca-Cola Lata",      obs: "350ml",   price: 5.00,  img: cocaPequena },
+        { id: 31, name: "Coca-Cola Lata",      obs: "350ml",   price: 5.00,  img: cocaLata },
         { id: 32, name: "Fanta Laranja Lata",  obs: "350ml",   price: 5.00,  img: fantaPequena },
         { id: 33, name: "Fanta Uva Lata",      obs: "350ml",   price: 5.00,  img: fantaUvaImg },
         { id: 34, name: "Coca-Cola Zero Lata", obs: null,      price: 5.00,  img: cocaZeroImg },
