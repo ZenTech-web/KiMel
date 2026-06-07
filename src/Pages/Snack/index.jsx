@@ -131,7 +131,7 @@ const Snack = () => {
         <ProductModal
           product={selectedProduct}
           onClose={() => setSelectedProduct(null)}
-          onAdd={addItem}
+          onAdd={(item) => { addItem(item); setCartOpen(true) }}
         />
       )}
 

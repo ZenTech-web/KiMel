@@ -268,18 +268,16 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
             </div>
           )}
 
-          {/* Total com entrega */}
-          {receber === "entrega" && (
-            <div className="flex justify-between items-center bg-white rounded-2xl px-4 py-3 border-2 border-gray-100">
-              <div className="text-[12px] font-nunito text-gray-500">
-                <p>Subtotal: R$ {cartTotal.toFixed(2).replace(".", ",")}</p>
-                <p>Taxa de entrega: R$ 2,00</p>
-              </div>
-              <p className="font-black text-dark text-[18px]">
-                R$ {(cartTotal + DELIVERY_FEE).toFixed(2).replace(".", ",")}
-              </p>
+          {/* Total */}
+          <div className="flex justify-between items-center bg-white rounded-2xl px-4 py-3 border-2 border-gray-100">
+            <div className="text-[12px] font-nunito text-gray-500">
+              <p>Subtotal: R$ {cartTotal.toFixed(2).replace(".", ",")}</p>
+              {receber === "entrega" && <p className="text-orange font-bold">+ Taxa de entrega: R$ 2,00</p>}
             </div>
-          )}
+            <p className="font-black text-dark text-[18px]">
+              R$ {(cartTotal + (receber === "entrega" ? DELIVERY_FEE : 0)).toFixed(2).replace(".", ",")}
+            </p>
+          </div>
 
           {/* Continuar */}
           <button

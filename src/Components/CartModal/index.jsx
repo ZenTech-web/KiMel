@@ -54,6 +54,12 @@ const CartModal = ({ cartItems, cartTotal, onClose, onUpdateQty, onRemove, onChe
             >
               ✅ Finalizar Compra
             </button>
+            <button
+              onClick={onClose}
+              className="w-full mt-2 py-3 rounded-2xl font-nunito font-bold text-[14px] text-gray-500 hover:text-dark hover:bg-gray-100 transition-all duration-200 cursor-pointer"
+            >
+              ← Continuar comprando
+            </button>
           </>
         )}
       </div>
