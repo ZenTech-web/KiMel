@@ -16,6 +16,9 @@ import { useStoreStatus } from "../../hooks/useStoreStatus"
 const categories = Data[0].containerCategory
 const products = Data[1].products
 
+const today = new Date().getDay()
+const isCuscuzAvailable = today !== 0 && today !== 6
+
 const Snack = () => {
     const { cartOpen, setCartOpen, checkoutOpen, setCheckoutOpen, cartItems, cartTotal, addItem, updateQty, removeItem } = useCart()
     const { isOpen, message, type } = useStoreStatus()
@@ -32,6 +35,7 @@ const Snack = () => {
 
     const selectedProducts = selectedCategory ? products[selectedCategory] : []
     const catInfo = categories.find(c => c.key === selectedCategory)
+    const categoriaAtualBloqueada = selectedCategory === "cuscuz" && !isCuscuzAvailable
 
     return (
       <>
@@ -46,17 +50,32 @@ const Snack = () => {
       </section>
 
       <section className="max-w-5xl mx-auto py-5 px-5 grid grid-cols-2 gap-4 justify-items-center">
-        {categories.map(cat => (
-          <div key={cat.id} onClick={() => handleSelectCategory(cat.key)} className="w-full">
-            <Card
-              fix={cat.fix}
-              fixImg={cat.fixImg}
-              img={<span className="text-4xl mx-auto my-3 block text-center">{cat.icon}</span>}
-              product={cat.name}
-              type={cat.type}
-            />
-          </div>
-        ))}
+        {categories.map(cat => {
+          const bloqueado = cat.key === "cuscuz" && !isCuscuzAvailable
+          return (
+            <div
+              key={cat.id}
+              onClick={() => !bloqueado && handleSelectCategory(cat.key)}
+              className={`w-full relative ${bloqueado ? "cursor-not-allowed" : ""}`}
+            >
+              <div className={bloqueado ? "opacity-40 pointer-events-none select-none" : ""}>
+                <Card
+                  fix={cat.fix}
+                  fixImg={cat.fixImg}
+                  img={<span className="text-4xl mx-auto my-3 block text-center">{cat.icon}</span>}
+                  product={cat.name}
+                  type={cat.type}
+                />
+              </div>
+              {bloqueado && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center rounded-3xl">
+                  <span className="text-[13px] font-nunito font-black text-gray-600">🚫 Indisponível hoje</span>
+                  <span className="text-[11px] font-nunito text-gray-500 mt-0.5">Disponível seg — sex</span>
+                </div>
+              )}
+            </div>
+          )
+        })}
       </section>
 
       {cartItems.length > 0 && (
@@ -70,7 +89,7 @@ const Snack = () => {
         </div>
       )}
 
-      {selectedCategory && (
+      {selectedCategory && !categoriaAtualBloqueada && (
         <section ref={productsRef} className="max-w-5xl mx-auto px-5 pb-5">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-black font-nunito">{catInfo?.name}</h2>
