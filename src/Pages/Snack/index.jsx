@@ -21,7 +21,7 @@ const isCuscuzAvailable = today !== 0 && today !== 6
 
 const Snack = () => {
     const { cartOpen, setCartOpen, checkoutOpen, setCheckoutOpen, cartItems, cartTotal, addItem, updateQty, removeItem } = useCart()
-    const { isOpen, message, type } = useStoreStatus()
+    const { isOpen, message, type, closingIn } = useStoreStatus()
     const [selectedCategory, setSelectedCategory] = useState(null)
     const [selectedProduct, setSelectedProduct] = useState(null)
     const productsRef = useRef(null)
@@ -42,6 +42,7 @@ const Snack = () => {
       <Header bg="var(--background-image-gradient-header)" onCartClick={() => setCartOpen(true)} cartCount={cartItems.length} title="Cardápio" icon={<TbChefHatFilled className="text-4xl text-yellow" />}/>
 
       <main className="bg-cream pb-12">
+      {isOpen && closingIn && <StoreBanner message={closingIn} type="open" />}
       {!isOpen && message && <StoreBanner message={message} type={type} />}
 
       <section className="max-w-5xl mx-auto py-5 bg-gradient-banner">

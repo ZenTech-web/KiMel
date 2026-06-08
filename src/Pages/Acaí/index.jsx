@@ -16,7 +16,7 @@ const Acaí = () => {
   const frutasAcair = Data.find(d => d.frutas).frutas
   const adicionaisAcair = Data.find(d => d.adicionais).adicionais
   const { cartOpen, setCartOpen, checkoutOpen, setCheckoutOpen, cartItems, cartTotal, addItem, updateQty, removeItem } = useCart()
-  const { isOpen, message, type } = useStoreStatus()
+  const { isOpen, message, type, closingIn } = useStoreStatus()
   const [selected, setSelected] = useState(null)
   const [selectedSabores, setSelectedSabores] = useState([])
   const [observacao, setObservacao] = useState("")
@@ -39,6 +39,7 @@ const Acaí = () => {
      <Header bg="var(--background-image-gradient-header-acair)" title="Monte seu Açaí" icon={<span className="text-4xl">🫐</span>} onCartClick={() => setCartOpen(true)} cartCount={cartItems.length}/>
        
      <main className="bg-acai-pale pb-7">
+     {isOpen && closingIn && <StoreBanner message={closingIn} type="open" />}
      {!isOpen && message && <StoreBanner message={message} type={type} />}
 
      <section className="bg-gradient-banner-acair flex flex-col items-center py-5 max-w-5xl mx-auto">

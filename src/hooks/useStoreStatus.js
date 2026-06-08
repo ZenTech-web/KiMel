@@ -30,21 +30,26 @@ export const resetScheduleCache = () => { _cache = null }
 
 export const useStoreStatus = () => {
   const [schedule, setSchedule] = useState(_cache)
+  const [now, setNow] = useState(() => new Date())
 
   useEffect(() => {
     if (_cache) { setSchedule(_cache); return }
     fetchSchedule().then(setSchedule)
   }, [])
 
-  if (!schedule) return { isOpen: false, type: "loading", message: null }
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 60_000)
+    return () => clearInterval(id)
+  }, [])
 
-  const now     = new Date()
+  if (!schedule) return { isOpen: false, type: "loading", message: null, closingIn: null }
+
   const day     = now.getDay()
   const current = now.getHours() * 60 + now.getMinutes()
   const slot    = schedule[day] ?? schedule[String(day)]
 
   if (!slot) {
-    return { isOpen: false, type: "closed-today", message: "Fechados hoje. Até amanhã! 👋" }
+    return { isOpen: false, type: "closed-today", message: "Fechados hoje. Até amanhã! 👋", closingIn: null }
   }
 
   const { open, close } = slot
@@ -52,8 +57,15 @@ export const useStoreStatus = () => {
   const closeMin = close[0] * 60 + close[1]
   const fmt = ([h, m]) => `${String(h).padStart(2, "0")}h${m ? String(m).padStart(2, "0") : ""}`
 
-  if (current < openMin)  return { isOpen: false, type: "before-hours", message: `Ainda não abrimos. Hoje abrimos às ${fmt(open)}. ⏰` }
-  if (current >= closeMin) return { isOpen: false, type: "after-hours",  message: `Encerramos por hoje às ${fmt(close)}. Até amanhã! 👋` }
+  if (current < openMin)  return { isOpen: false, type: "before-hours", message: `Ainda não abrimos. Hoje abrimos às ${fmt(open)}. ⏰`, closingIn: null }
+  if (current >= closeMin) return { isOpen: false, type: "after-hours",  message: `Encerramos por hoje às ${fmt(close)}. Até amanhã! 👋`, closingIn: null }
 
-  return { isOpen: true, type: "open", message: null }
+  const minsLeft = closeMin - current
+  const h = Math.floor(minsLeft / 60)
+  const m = minsLeft % 60
+  const closingIn = h > 0
+    ? (m > 0 ? `Fechamos em ${h}h ${m}min` : `Fechamos em ${h}h`)
+    : `Fechamos em ${minsLeft}min`
+
+  return { isOpen: true, type: "open", message: null, closingIn }
 }
