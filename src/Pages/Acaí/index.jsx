@@ -146,22 +146,28 @@ const Acaí = () => {
       </div>
 
       <div className="flex justify-center px-5 mt-3">
-        <button
-          disabled={selected === null || selectedSabores.length === 0}
-          onClick={() => {
-            const tamanho = sizesAcair[selected]
-            const sabor = selectedSabores.map(i => sabores[i].nome).join(" + ")
-            const frutas = selectedFrutas.map(i => frutasAcair[i].nome).join(", ")
-            const adicionaisNomes = selectedAdicionais.map(i => adicionaisAcair[i].nome).join(", ")
-            const adicionaisPreco = selectedAdicionais.reduce((sum, i) => sum + adicionaisAcair[i].price, 0)
-            const obs = [tamanho.ml, sabor, frutas, adicionaisNomes, observacao ? `obs: ${observacao}` : ""].filter(Boolean).join(" · ")
-            addItem({ name: "Açaí", obs, price: tamanho.price + adicionaisPreco, icon: "🫐" })
-            setCartOpen(true)
-          }}
-          className={`w-full max-w-sm font-nunito font-bold text-[16px] py-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-200 ${selected !== null && selectedSabores.length > 0 ? 'bg-linear-to-r from-acai to-acai-light text-white hover:opacity-90 cursor-pointer' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
-        >
-          🛒 Adicionar ao Carrinho
-        </button>
+        {(() => {
+          const adicionaisPreco = selectedAdicionais.reduce((sum, i) => sum + adicionaisAcair[i].price, 0)
+          const precoAtual = selected !== null ? sizesAcair[selected].price + adicionaisPreco : 0
+          const canAdd = selected !== null && selectedSabores.length > 0
+          return (
+            <button
+              disabled={!canAdd}
+              onClick={() => {
+                const tamanho = sizesAcair[selected]
+                const sabor = selectedSabores.map(i => sabores[i].nome).join(" + ")
+                const frutas = selectedFrutas.map(i => frutasAcair[i].nome).join(", ")
+                const adicionaisNomes = selectedAdicionais.map(i => adicionaisAcair[i].nome).join(", ")
+                const obs = [tamanho.ml, sabor, frutas, adicionaisNomes, observacao ? `obs: ${observacao}` : ""].filter(Boolean).join(" · ")
+                addItem({ name: "Açaí", obs, price: precoAtual, icon: "🫐" })
+                setCartOpen(true)
+              }}
+              className={`w-full max-w-sm font-nunito font-bold text-[16px] py-4 rounded-2xl flex items-center justify-center gap-2 transition-all duration-200 ${canAdd ? 'bg-linear-to-r from-acai to-acai-light text-white hover:opacity-90 cursor-pointer' : 'bg-gray-200 text-gray-400 cursor-not-allowed'}`}
+            >
+              🛒 {canAdd ? `Adicionar ao Carrinho · R$ ${precoAtual.toFixed(2).replace(".", ",")}` : "Adicionar ao Carrinho"}
+            </button>
+          )
+        })()}
       </div>
 
       </main>

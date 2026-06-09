@@ -61,11 +61,9 @@ export const useStoreStatus = () => {
   if (current >= closeMin) return { isOpen: false, type: "after-hours",  message: `Encerramos por hoje às ${fmt(close)}. Até amanhã! 👋`, closingIn: null }
 
   const minsLeft = closeMin - current
-  const h = Math.floor(minsLeft / 60)
-  const m = minsLeft % 60
-  const closingIn = h > 0
-    ? (m > 0 ? `Fechamos em ${h}h ${m}min` : `Fechamos em ${h}h`)
-    : `Fechamos em ${minsLeft}min`
+  const closingIn = minsLeft <= 60
+    ? `Fechamos em ${minsLeft}min`
+    : null
 
   return { isOpen: true, type: "open", message: null, closingIn }
 }
