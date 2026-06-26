@@ -268,6 +268,16 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
             </div>
           </div>
 
+          {/* Aviso de tempo — só se Entrega */}
+          {receber === "entrega" && (
+            <div className="flex items-start gap-2.5 bg-orange/10 border border-orange/30 rounded-2xl px-3.5 py-3">
+              <span className="text-[18px] shrink-0">🛵</span>
+              <p className="text-[12px] font-nunito text-orange font-bold leading-relaxed">
+                As entregas podem demorar de <span className="underline">20 a 50 minutos</span>, dependendo da distância e do movimento.
+              </p>
+            </div>
+          )}
+
           {/* Endereço — só se Entrega */}
           {receber === "entrega" && (
             <div className="flex flex-col gap-3 bg-white rounded-2xl p-4 border-2 border-gray-100">
