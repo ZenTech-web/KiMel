@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { MdStorefront, MdDeliveryDining, MdTableBar } from "react-icons/md"
 import { FaWhatsapp } from "react-icons/fa"
 import { useStoreStatus } from "../../hooks/useStoreStatus"
@@ -15,7 +15,7 @@ const formasReceber = [
 
 const receberLabel = { retirada: "Retirada", entrega: "Entrega", local: "Comer no local" }
 
-const inputClass = "w-full bg-white rounded-xl px-4 py-3 text-[13px] font-nunito text-dark border-2 border-gray-200 focus:outline-none focus:border-dark transition-colors placeholder:text-gray-400"
+const fieldCls = (val) => `w-full bg-white rounded-xl px-4 py-3 text-[13px] font-nunito text-dark border-2 focus:outline-none transition-colors placeholder:text-gray-400 ${val && val.trim() ? "border-green-400 focus:border-green-500" : "border-red-500 focus:border-red-600"}`
 const labelClass = "text-dark font-nunito font-bold text-[13px] mb-1.5 block"
 
 const buildMessage = ({ nome, receber, pagamento, tipoCartao, troco, valorTroco, endereco, numero, complemento }, cartItems, cartTotal) => {
@@ -72,6 +72,11 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
   const { cartItems, cartTotal, clearCart } = useCart()
   const { isOpen, message, type } = useStoreStatus()
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden"
+    return () => { document.body.style.overflow = "" }
+  }, [])
+
   const enderecoSalvo = loadEndereco()
 
   const [nome, setNome]               = useState("")
@@ -93,6 +98,21 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
 
   const canContinue = isOpen && nome.trim() && receber && pagamentoValido && enderecoValido
   const totalFinal  = cartTotal + (receber === "entrega" ? DELIVERY_FEE : 0)
+
+  const camposFaltando = () => {
+    const falta = []
+    if (!nome.trim()) falta.push("Nome")
+    if (!receber) falta.push("Como receber")
+    if (receber === "entrega") {
+      if (!endereco.trim()) falta.push("Endereço")
+      if (!numero.trim()) falta.push("Número")
+      if (!complemento.trim()) falta.push("Complemento")
+    }
+    if (!pagamento) falta.push("Forma de pagamento")
+    else if (pagamento === "Cartão" && !tipoCartao) falta.push("Tipo de cartão")
+    else if (pagamento === "Dinheiro" && troco && !valorTroco.trim()) falta.push("Troco para quanto")
+    return falta
+  }
 
   const handleSend = () => {
     const data = { nome, receber, pagamento, tipoCartao, troco, valorTroco, endereco, numero, complemento }
@@ -245,7 +265,7 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
               value={nome}
               onChange={e => setNome(e.target.value)}
               placeholder="Seu nome"
-              className={inputClass}
+              className={fieldCls(nome)}
             />
           </div>
 
@@ -297,16 +317,16 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
 
               <div>
                 <label className={labelClass}>Endereço <span className="text-orange">*</span></label>
-                <input value={endereco} onChange={e => { setEndereco(e.target.value); setUsandoSalvo(false) }} placeholder="Rua, Avenida..." className={inputClass} />
+                <input value={endereco} onChange={e => { setEndereco(e.target.value); setUsandoSalvo(false) }} placeholder="Rua, Avenida..." className={fieldCls(endereco)} />
               </div>
               <div className="grid grid-cols-2 gap-2">
                 <div>
                   <label className={labelClass}>Número <span className="text-orange">*</span></label>
-                  <input value={numero} onChange={e => { setNumero(e.target.value); setUsandoSalvo(false) }} placeholder="Ex: 123" className={inputClass} />
+                  <input value={numero} onChange={e => { setNumero(e.target.value); setUsandoSalvo(false) }} placeholder="Ex: 123" className={fieldCls(numero)} />
                 </div>
                 <div>
                   <label className={labelClass}>Complemento <span className="text-orange">*</span></label>
-                  <input value={complemento} onChange={e => { setComplemento(e.target.value); setUsandoSalvo(false) }} placeholder="Apto, bloco..." className={inputClass} />
+                  <input value={complemento} onChange={e => { setComplemento(e.target.value); setUsandoSalvo(false) }} placeholder="Apto, bloco..." className={fieldCls(complemento)} />
                 </div>
               </div>
             </div>
@@ -385,7 +405,7 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
                     value={valorTroco}
                     onChange={e => setValorTroco(e.target.value)}
                     placeholder="Ex: R$ 50,00"
-                    className={inputClass}
+                    className={fieldCls(valorTroco)}
                   />
                 </div>
               )}
@@ -412,6 +432,12 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
             <FaWhatsapp className={canContinue ? "text-green-400" : "text-gray-400"} />
             Finalizar pedido
           </button>
+
+          {!canContinue && camposFaltando().length > 0 && (
+            <p className="text-center text-[12px] font-nunito text-gray-400">
+              Falta preencher: <span className="font-bold text-orange">{camposFaltando().join(" · ")}</span>
+            </p>
+          )}
 
         </div>
         )}

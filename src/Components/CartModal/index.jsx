@@ -1,6 +1,12 @@
+import { useEffect } from "react"
 import { FiTrash2 } from "react-icons/fi"
 
 const CartModal = ({ cartItems, cartTotal, onClose, onUpdateQty, onRemove, onCheckout }) => {
+  useEffect(() => {
+    document.body.style.overflow = "hidden"
+    return () => { document.body.style.overflow = "" }
+  }, [])
+
   return (
     <div className="fixed inset-0 z-20 flex justify-end">
       <div onClick={onClose} className="absolute inset-0 bg-black/40" />

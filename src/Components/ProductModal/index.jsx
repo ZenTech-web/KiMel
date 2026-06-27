@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Chip = ({ label, selected, disabled, onClick, accent }) => (
     <button
@@ -21,6 +21,11 @@ const Chip = ({ label, selected, disabled, onClick, accent }) => (
 )
 
 const ProductModal = ({ product, onClose, onAdd }) => {
+    useEffect(() => {
+        document.body.style.overflow = "hidden"
+        return () => { document.body.style.overflow = "" }
+    }, [])
+
     const [quantity, setQuantity] = useState(1)
     const [notes, setNotes] = useState("")
     const [selectedOption, setSelectedOption] = useState(null)
