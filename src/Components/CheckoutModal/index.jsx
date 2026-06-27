@@ -86,7 +86,7 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
   const [usandoSalvo, setUsandoSalvo] = useState(!!enderecoSalvo)
   const [showReview, setShowReview]   = useState(false)
 
-  const enderecoValido  = receber !== "entrega" || (endereco.trim() && numero.trim())
+  const enderecoValido  = receber !== "entrega" || (endereco.trim() && numero.trim() && complemento.trim())
   const pagamentoValido = pagamento &&
     (pagamento !== "Cartão"  || tipoCartao) &&
     (pagamento !== "Dinheiro" || !troco || valorTroco.trim())
@@ -305,7 +305,7 @@ const CheckoutModal = ({ onClose, onConfirm }) => {
                   <input value={numero} onChange={e => { setNumero(e.target.value); setUsandoSalvo(false) }} placeholder="Ex: 123" className={inputClass} />
                 </div>
                 <div>
-                  <label className={labelClass}>Complemento</label>
+                  <label className={labelClass}>Complemento <span className="text-orange">*</span></label>
                   <input value={complemento} onChange={e => { setComplemento(e.target.value); setUsandoSalvo(false) }} placeholder="Apto, bloco..." className={inputClass} />
                 </div>
               </div>

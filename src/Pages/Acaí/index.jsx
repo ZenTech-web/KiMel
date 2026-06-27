@@ -59,7 +59,7 @@ const Acaí = () => {
 
       <SectionTitle emoji="🥤" title="Tamanho" />
 
-      <section className="flex my-5 gap-2.5">
+      <section className="flex my-5 gap-1.5">
 
        {sizesAcair.map(({size, preco, ml}, index) => (
          <div key={index} className={`w-20 shadow rounded-2xl flex flex-col items-center bg-white text-[14px] py-2 gap-0.5 hover:cursor-pointer hover:border border-acai transition-all duration-200 md:w-44 lg:py-4 ${selected === index && 'border border-acai'}`} onClick={() => { setSelected(index); const max = sizesAcair[index].ml === "700ml" ? 3 : 2; setSelectedFrutas(prev => prev.slice(0, max)) }}>
