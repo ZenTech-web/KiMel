@@ -25,6 +25,7 @@ const Acaí = () => {
 
   const sabores = [
     { emoji: "🫐", nome: "Açaí" },
+    { emoji: "🫐", nome: "Açaí Natural" },
     { emoji: "🍨", nome: "Cupuaçu" },
   ]
 
